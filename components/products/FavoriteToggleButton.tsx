@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+
 // import { auth } from '@clerk/nextjs/server';
 // import { CardSignInButton } from '../form/Buttons';
 // import { fetchFavoriteId } from '@/utils/actions';

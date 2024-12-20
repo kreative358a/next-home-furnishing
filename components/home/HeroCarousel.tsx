@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+
 "use client"
 import hero1 from '@/public/images/hero1.jpg';
 import hero2 from '@/public/images/hero2.jpg';
