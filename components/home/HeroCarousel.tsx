@@ -43,11 +43,11 @@ function HeroCarousel() {
   return (
     <div className='hidden lg:block'>
       <Carousel
-            // className="w-full max-w-md"
-            // plugins={[plugin.current]}
-            // onMouseEnter={plugin.current.stop}
-            // onMouseLeave={plugin.current.reset}
-            // setApi={setApi}
+            className="w-full max-w-md"
+            plugins={[plugin.current]}
+            onMouseEnter={plugin.current.stop}
+            onMouseLeave={plugin.current.reset}
+            setApi={setApi}
       >
         <CarouselContent>
           {carouselImages.map((image, index) => {
