@@ -5,7 +5,11 @@ import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import Container from "@/components/global/Container";
 import Providers from "./providers";
-// import { ClerkProvider } from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
+import { 
+  dark, 
+  neobrutalism, 
+  shadesOfPurple } from '@clerk/themes'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,6 +35,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <ClerkProvider
+    appearance={{
+      
+      baseTheme: [neobrutalism, dark, shadesOfPurple],
+      variables: { colorPrimary: 'blue' },
+      signIn: {
+        baseTheme: [shadesOfPurple],
+        // variables: { colorPrimary: 'green' },
+      },
+    }}>
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.className} antialiased`}
@@ -41,5 +55,6 @@ export default function RootLayout({
         </Providers>
       </body>
     </html>
+    </ClerkProvider>
   );
 }

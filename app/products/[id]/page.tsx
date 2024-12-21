@@ -82,7 +82,7 @@ async function SingleProductPage({ params }: { params: { id: string } }) {
             src={image}
             alt={name}
             fill
-            // sizes='(max-width:768px) 100vw,(max-width:1200px) 50vw,33vw'
+            sizes='(max-width:520px) 90vw, (max-width:680px) 70vw,(max-width:768px) 50vw,(max-width:1200px) 50vw,33vw'
             priority
             className='w-full h-full rounded-md object-cover'
           />
