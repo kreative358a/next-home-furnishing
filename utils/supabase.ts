@@ -1,6 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 
-const bucket = 'main-bucket';
+const bucket = 'next-home-furnishing-bucket';
 
 export const supabase = createClient(
   process.env.SUPABASE_URL as string,
@@ -9,6 +9,7 @@ export const supabase = createClient(
 
 export const uploadImage = async (image: File) => {
   const timestamp = Date.now();
+  // const newName = `/users/${timestamp}-${image.name}`;
   const newName = `${timestamp}-${image.name}`;
   const { data } = await supabase.storage
     .from(bucket)
