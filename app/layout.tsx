@@ -71,14 +71,14 @@ export default function RootLayout({
     <ClerkProvider 
     appearance={{
       elements: {
-        cardBox: 'bg-blue-100 dark:bg-blue-950 text-blue-900 dark:text-blue-100',
-        card: 'bg-blue-100 dark:bg-blue-950 text-blue-900 dark:text-blue-100',
-        headerTitle: 'text-blue-900 dark:text-blue-100',
-        socialButtonsBlockButton: 'bg-blue-200 dark:bg-blue-800 text-blue-900 dark:text-blue-100',
-        formFieldLabel: 'text-blue-900 dark:text-blue-100',
-        formFieldInput: 'bg-blue-200 dark:bg-blue-800 text-blue-900 dark:text-blue-100',
-        footer: 'bg-blue-100 dark:bg-blue-900 text-blue-900 dark:text-blue-100',
-        formButtonPrimary: 'bg-blue-300 hover:bg-blue-400 dark:bg-blue-700 text-blue-950 dark:text-blue-100 border-2 border-blue-400 dark:bg-blue-700 dark:hover:bg-blue-800 outline-0 shadow-transparent',
+        cardBox: 'bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100',
+        card: 'bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100',
+        headerTitle: 'text-slate-900 dark:text-slate-100',
+        socialButtonsBlockButton: 'bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-100',
+        formFieldLabel: 'text-slate-900 dark:text-slate-100',
+        formFieldInput: 'bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-100',
+        footer: 'bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100',
+        formButtonPrimary: 'bg-slate-300 hover:bg-slate-400 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border-2 border-slate-400 dark:bg-slate-700 dark:hover:bg-slate-800 outline-0 shadow-transparent',
 
       }
     }}>

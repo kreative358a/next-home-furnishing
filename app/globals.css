@@ -122,6 +122,9 @@ body {
   background: blue !important;
   background-color: transparent !important;
 }
-.cl-footerActionLink {
+.cl-footerActionLink,
+.cl-formFieldAction,
+.cl-identityPreviewEditButton,
+.cl-formFieldInputShowPasswordButton  {
   color:crimson;
 }
