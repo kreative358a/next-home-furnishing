@@ -3,7 +3,8 @@ import { Skeleton } from '../ui/skeleton';
 
 function LoadingContainer() {
   return (
-    <div className='pt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3'>
+    <div className='pt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4'>
+      <LoadingProduct />
       <LoadingProduct />
       <LoadingProduct />
       <LoadingProduct />

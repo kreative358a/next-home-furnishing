@@ -4,16 +4,18 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
+} from "@/components/ui/select";
 
 export enum Mode {
-  SingleProduct = 'singleProduct',
-  CartItem = 'cartItem',
+  SingleProduct = "singleProduct",
+  CartItem = "cartItem",
 }
 
 type SelectProductAmountProps = {
   mode: Mode.SingleProduct;
   amount: number;
+  // W tym komponencie zamierzamy przekazać funkcję, która
+  // będzie kontrolować tę kwotę w komponencie nadrzędnym.
   setAmount: (value: number) => void;
 };
 
@@ -33,17 +35,17 @@ function SelectProductAmount(
 
   return (
     <>
-      <h4 className='mb-2'>Amount : </h4>
+      <h4 className="mb-2">Amount : </h4>
       <Select
         defaultValue={amount.toString()}
         onValueChange={(value) => setAmount(Number(value))}
         disabled={cartItem ? props.isLoading : false}
       >
-        <SelectTrigger className={cartItem ? 'w-[100px]' : 'w-[150px]'}>
+        <SelectTrigger className={cartItem ? "w-[100px]" : "w-[150px]"}>
           <SelectValue placeholder={amount} />
         </SelectTrigger>
         <SelectContent>
-          {Array.from({ length: cartItem ? amount + 10 : 10 }, (_, index) => {
+          {Array.from({ length: cartItem ? 10 : 6 }, (_, index) => {
             const selectValue = (index + 1).toString();
             return (
               <SelectItem key={selectValue} value={selectValue}>
@@ -51,6 +53,15 @@ function SelectProductAmount(
               </SelectItem>
             );
           })}
+
+          {/* {Array.from({ length: cartItem ? amount + 10 : 10 }, (_, index) => {
+            const selectValue = (index + 1).toString();
+            return (
+              <SelectItem key={selectValue} value={selectValue}>
+                {selectValue}
+              </SelectItem>
+            );
+          })} */}
         </SelectContent>
       </Select>
     </>

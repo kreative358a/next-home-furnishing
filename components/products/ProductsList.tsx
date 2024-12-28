@@ -17,7 +17,7 @@ function ProductsList({ products }: { products: Product[] }) {
             <Link href={`/products/${productId}`}>
               <Card className='transform group-hover:shadow-xl transition-shadow group-hover:dark:shadow-slate-800 duration-500'>
                 <CardContent className='p-8 gap-y-4 grid md:grid-cols-3'>
-                  <div className='relative h-64 md:h-48 md:w-48'>
+                  <div className='relative h-64 md:h-48 md:w-48 transform group-hover:shadow-xl group-hover:shadow-slate-400/50 dark:group-hover:shadow-slate-800/50 group-hover:scale-105 transition-[transform shadow] duration-500'>
                     <Image
                       src={image}
                       alt={name}

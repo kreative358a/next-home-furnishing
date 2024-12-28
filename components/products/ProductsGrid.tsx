@@ -15,7 +15,7 @@ function ProductsGrid({ products }: { products: Product[] }) {
         return (
           <article key={productId} className='group relative'>
             <Link href={`/products/${productId}`}>
-              <Card className='transform group-hover:shadow-xl transition-shadow duration-500'>
+              <Card className='transform group-hover:shadow-xl group-hover:shadow-slate-400/50 dark:group-hover:shadow-slate-800/50 group-hover:scale-105 transition-[transform shadow] duration-500'>
                 <CardContent className='p-4'>
                   <div className='relative h-64 md:h-64 rounded overflow-hidden '>
                     <Image
@@ -24,7 +24,7 @@ function ProductsGrid({ products }: { products: Product[] }) {
                       fill
                       sizes='(max-width:768px) 100vw,(max-width:1200px) 50vw,33vw'
                       priority
-                      className='rounded w-full object-cover transform group-hover:scale-110 transition-transform duration-500'
+                      className='rounded w-full object-cover'
                     />
                   </div>
                   <div className='mt-4 text-center'>

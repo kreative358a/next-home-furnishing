@@ -11,10 +11,10 @@ function HomePage() {
        <Suspense fallback={<LoadingContainer />}>
         <FeaturedProducts />
       </Suspense>
-      <h1 className='text-3xl'>HomePage</h1>
+      {/* <h1 className='text-3xl'>HomePage</h1>
       <Button variant='default' size='lg' className='capitalize m-8 bg-primary text-blue-50 dark:text-blue-950'>
         Click me
-      </Button>
+      </Button> */}
     </div>
   )
 }

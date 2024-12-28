@@ -4082,6 +4082,7 @@ async function SingleProductPage({ params }: { params: { id: string } }) {
 model Product{
 cartItems CartItem[]
 }
+
 model Cart {
   id        String   @id @default(uuid())
   clerkId  String
