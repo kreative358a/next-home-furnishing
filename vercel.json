@@ -1,13 +1,10 @@
 {
   "functions": {
-    "api/test.js": {
+    "app/products-api/**/*": {
       "maxDuration": 30
     },
-    "api/*.js": {
-      "maxDuration": 20
-    },
-    "src/api/*.js": {
-      "maxDuration": 25
+    "app/products-server/**/*": {
+      "maxDuration": 30
     }
   }
 }
