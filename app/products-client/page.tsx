@@ -3,7 +3,7 @@
 // import ProductsContainerUrl from "@/components/products/ProductsContainerUrl";
 import ProductsContainerClient from "@/components/products-client/ProductsContainerClient";
 
-import CarouselBackground from "@/components/products/CarouselBackground";
+import CarouselBackground from "@/components/products-client/CarouselBackground";
 import { Separator } from "@/components/ui/separator";
 // import { cookies } from "next/headers";
 import { useState, useEffect } from "react";

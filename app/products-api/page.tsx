@@ -1,5 +1,5 @@
 "use client";
-import CarouselBackground from "@/components/products/CarouselBackground";
+import CarouselBackground from "@/components/products-api/CarouselBackground";
 import { customFetchHF, type ProductHF } from "@/utils";
 import { useEffect, useState, useRef, useCallback } from "react";
 import ProductsContainerHF from "@/components/products-api/ProductsContainerHF";
