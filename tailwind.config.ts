@@ -64,18 +64,40 @@
 // };
 // export default config;
 
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config = {
+  daisyui: {
+    themes: ["corporate", "dark", "synthwave"],
+  },
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
+    screens: {
+      sm: "632px",
+      // => @media (min-width: 640px) { ... }
+
+      md: "760px",
+      // => @media (min-width: 768px) { ... }
+
+      lg: "1014px",
+      // => @media (min-width: 1024px) { ... }
+
+      xl: "1270px",
+      // => @media (min-width: 1280px) { ... }
+
+      "2xl": "1526px",
+      // => @media (min-width: 1536px) { ... }
+
+      "3xl": "1910px",
+      // => @media (min-width: 1536px) { ... }
+    },
     container: {
       center: true,
       padding: "2rem",
@@ -90,6 +112,8 @@ const config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        // background: "hsl(var(--muted))",
+        // foreground: "hsl(var(--muted-foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -140,7 +164,7 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-} satisfies Config
+  plugins: [require("tailwindcss-animate"), require("daisyui")],
+} satisfies Config;
 
-export default config
+export default config;

@@ -29,7 +29,7 @@ async function AdminProductsPage() {
   if (items.length === 0) return <EmptyList />;
 
   return (
-    <section>
+    <div className="">
       <Table className="border-2 p-2 rounded-md">
         <TableCaption className="capitalize">
           total products : {items.length}
@@ -79,7 +79,7 @@ async function AdminProductsPage() {
           })}
         </TableBody>
       </Table>
-    </section>
+    </div>
   );
 }
 

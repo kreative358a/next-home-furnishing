@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+// import "./index.css";
 import Navbar from "@/components/navbar/Navbar";
 import Container from "@/components/global/Container";
 import Providers from "./providers";
@@ -9,6 +10,8 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { dark, neobrutalism, shadesOfPurple } from "@clerk/themes";
 // import { useTheme } from 'next-themes';
 import { themeList } from "@/components/navbar/DarkMode";
+import ProvidersClient from "./providers-client";
+import ProvidersServer from "./providers-server";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -60,6 +63,53 @@ export const metadata: Metadata = {
 //   );
 // }
 
+// export default function RootLayout({
+//   children,
+// }: Readonly<{
+//   children: React.ReactNode;
+// }>) {
+//   // const { theme, setTheme } = useTheme();
+//   return (
+//     <ClerkProvider
+//       appearance={{
+//         elements: {
+//           cardBox:
+//             "bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100",
+//           card: "bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100",
+//           headerTitle: "text-slate-900 dark:text-slate-100",
+//           socialButtonsBlockButton:
+//             "bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-100",
+//           formFieldLabel: "text-slate-900 dark:text-slate-100",
+//           formFieldInput:
+//             "bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-100",
+//           footer:
+//             "bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100",
+//           formButtonPrimary:
+//             "bg-slate-300 hover:bg-slate-400 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border-2 border-slate-400 dark:bg-slate-700 dark:hover:bg-slate-800 outline-0 shadow-transparent",
+//         },
+//       }}
+//     >
+//       <html lang="en" suppressHydrationWarning>
+//         <body
+//           className={`${geistSans.variable} ${geistMono.variable} ${inter.className} antialiased`}
+//         >
+//           {typeof window !== "undefined" ? (
+//             <ProvidersClient>
+//               <Navbar />
+//               <Container className="py-2">{children}</Container>
+//             </ProvidersClient>
+//           ) : (
+//             <ProvidersServer>
+//               <Navbar />
+//               <Container className="py-2">{children}</Container>
+//             </ProvidersServer>
+//           )}
+//         </body>
+//       </html>
+//     </ClerkProvider>
+//   );
+// }
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -67,31 +117,38 @@ export default function RootLayout({
 }>) {
   // const { theme, setTheme } = useTheme();
   return (
-
-    <ClerkProvider 
-    appearance={{
-      elements: {
-        cardBox: 'bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100',
-        card: 'bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100',
-        headerTitle: 'text-slate-900 dark:text-slate-100',
-        socialButtonsBlockButton: 'bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-100',
-        formFieldLabel: 'text-slate-900 dark:text-slate-100',
-        formFieldInput: 'bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-100',
-        footer: 'bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100',
-        formButtonPrimary: 'bg-slate-300 hover:bg-slate-400 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border-2 border-slate-400 dark:bg-slate-700 dark:hover:bg-slate-800 outline-0 shadow-transparent',
-
-      }
-    }}>
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.className} antialiased`}
-      >
-        <Providers>
-          <Navbar />
-          <Container className="py-20">{children}</Container>
-        </Providers>
-      </body>
-    </html>
+    <ClerkProvider
+      appearance={{
+        elements: {
+          cardBox:
+            "bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100",
+          card: "bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100",
+          headerTitle: "text-slate-900 dark:text-slate-100",
+          socialButtonsBlockButton:
+            "bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-100",
+          formFieldLabel: "text-slate-900 dark:text-slate-100",
+          formFieldInput:
+            "bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-100",
+          footer:
+            "bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100",
+          formButtonPrimary:
+            "bg-slate-300 hover:bg-slate-400 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border-2 border-slate-400 dark:bg-slate-700 dark:hover:bg-slate-800 outline-0 shadow-transparent",
+          otpCodeFieldInput:
+            "bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-100",
+          formResendCodeLink: "text-slate-900 dark:text-slate-100",
+        },
+      }}
+    >
+      <html lang="en" suppressHydrationWarning>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} ${inter.className} antialiased bg-muted/80 w-[100vw] h-[100vh] m-0`}
+        >
+          <ProvidersServer>
+            <Navbar />
+            <Container className="py-2">{children}</Container>
+          </ProvidersServer>
+        </body>
+      </html>
     </ClerkProvider>
   );
 }

@@ -1,0 +1,66 @@
+#radix-\:r5\:
+  > div.dialog-content-background.max-h-\[760px\]
+  > div
+  > div
+  > div
+  > div.w-100\%.h-auto.ml-\[-28px\].sm\:mx-auto
+  > div
+  > div.swiper-button-prev,
+#radix-\:r5\:
+  > div.dialog-content-background.max-h-\[760px\]
+  > div
+  > div
+  > div
+  > div.w-100\%.h-auto.ml-\[-28px\].sm\:mx-auto
+  > div
+  > div.swiper-button-prev:after {
+  left: -10px;
+  margin-left: -10px;
+  right: -10px;
+}
+
+/* div.swiper-button-prev {
+  margin-left: -4px;
+} */
+
+body
+  > div.px-2.sm\:px-4.mx-auto.max-w-6xl.xl\:max-w-7xl.md\:px-8.\32
+  xl\:max-w-\[90\%\].py-2
+  > div
+  > div
+  > div
+  > div.w-100\%.h-auto.ml-\[-28px\].sm\:mx-auto.mb-2
+  > div
+  > div.swiper-button-prev.swiper-button-disabled,
+body
+  > div.px-2.sm\:px-4.mx-auto.max-w-6xl.xl\:max-w-7xl.md\:px-8.\32
+  xl\:max-w-\[90\%\].py-2
+  > div
+  > div
+  > div
+  > div.w-100\%.h-auto.ml-\[-28px\].sm\:mx-auto.mb-2
+  > div
+  > div.swiper-button-prev.swiper-button-disabled:after {
+  left: -10px;
+  margin-left: -10px;
+  right: -10px;
+}
+
+*.swiper-button-prev:after,
+*.swiper-button-prev.swiper-button-disabled:after,
+*div.swiper-button-prev:after,
+*div.swiper-button-prev.swiper-button-disabled:after,
+*div.swiper-button-prev.swiper-button-disabled,
+*div.swiper-button-prev,
+.swiper-button-prev,
+.swiper-button-prev.swiper-button-disabled,
+.swiper-button-prev:after,
+.swiper-button-prev.swiper-button-disabled:after,
+div.swiper-button-prev:after,
+div.swiper-button-prev.swiper-button-disabled:after,
+div.swiper-button-prev.swiper-button-disabled,
+div.swiper-button-prev {
+  left: -10px;
+  margin-left: -10px;
+  right: -10px;
+}

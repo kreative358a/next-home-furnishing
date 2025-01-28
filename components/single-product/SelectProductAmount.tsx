@@ -41,10 +41,16 @@ function SelectProductAmount(
         onValueChange={(value) => setAmount(Number(value))}
         disabled={cartItem ? props.isLoading : false}
       >
-        <SelectTrigger className={cartItem ? "w-[100px]" : "w-[150px]"}>
+        <SelectTrigger
+          className={
+            cartItem
+              ? "w-[100px] border-2 border-blue-600/60 "
+              : "w-[80px] sm:w-[120px] md:w-[160px] border-2 border-blue-600/60"
+          }
+        >
           <SelectValue placeholder={amount} />
         </SelectTrigger>
-        <SelectContent>
+        <SelectContent className="rounded-sm">
           {Array.from({ length: cartItem ? 10 : 6 }, (_, index) => {
             const selectValue = (index + 1).toString();
             return (

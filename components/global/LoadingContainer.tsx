@@ -1,26 +1,30 @@
-import { Card, CardContent } from '../ui/card';
-import { Skeleton } from '../ui/skeleton';
+import { Card, CardContent } from "../ui/card";
+import { Skeleton } from "../ui/skeleton";
 
 function LoadingContainer() {
   return (
-    <div className='pt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4'>
-      <LoadingProduct />
-      <LoadingProduct />
-      <LoadingProduct />
-      <LoadingProduct />
+    <div className="productsContent px-0.5 sm:px-2 pt-4 pb-4 lg:mt-2">
+      <div className="pt-48 grid gap-4 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+        <LoadingProduct />
+        <LoadingProduct />
+        <LoadingProduct />
+        <LoadingProduct />
+      </div>
     </div>
   );
 }
 
 function LoadingProduct() {
   return (
-    <Card>
-      <CardContent className='p-4'>
-        <Skeleton className='h-48 w-full' />
-        <Skeleton className='h-4 w-3/4 mt-4' />
-        <Skeleton className='h-4 w-1/2 mt-4' />
-      </CardContent>
-    </Card>
+    <div className="productsContent pt-4 pb-4 lg:mt-2">
+      <Card>
+        <CardContent className="p-4">
+          <Skeleton className="h-48 w-full" />
+          <Skeleton className="h-4 w-3/4 mt-4" />
+          <Skeleton className="h-4 w-1/2 mt-4" />
+        </CardContent>
+      </Card>
+    </div>
   );
 }
 export default LoadingContainer;

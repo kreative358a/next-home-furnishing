@@ -2,6 +2,17 @@
 
 # dependencies
 /node_modules
+/seqwa
+/pokemon
+/productsSt
+/components/seqwa
+/components/pokemon
+/components/productsSt
+
+/products
+/components/products
+/products-client
+/components/products-client
 /.pnp
 .pnp.js
 .yarn/install-state.gz

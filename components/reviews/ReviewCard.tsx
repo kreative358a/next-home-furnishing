@@ -1,7 +1,7 @@
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import Rating from './Rating';
-import Comment from './Comment';
-import Image from 'next/image';
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import Rating from "./Rating";
+import Comment from "./Comment";
+import Image from "next/image";
 
 type ReviewCardProps = {
   reviewInfo: {
@@ -13,33 +13,21 @@ type ReviewCardProps = {
   children?: React.ReactNode;
 };
 
-// const ImageHover = ({ reviewInfo }: ReviewCardProps) => {
-//   return (
-//     <Image
-//     src={reviewInfo.image}
-//     alt={reviewInfo.name}
-//     width={100}
-//     height={100}
-//     className='w-12 h-12 rounded-full object-cover'
-//   />
-//   )
-// }
-
 function ReviewCard({ reviewInfo, children }: ReviewCardProps) {
   return (
-    <Card className='relative '>
+    <Card className="relative ">
       <CardHeader>
-        <div className='flex items-center'>
+        <div className="flex items-center">
           <Image
             src={reviewInfo.image}
             alt={reviewInfo.name}
             width={48}
             height={48}
             // className='w-12 h-12 rounded-full object-cover'
-            className='w-12 h-12 rounded-full object-cover transition ease-in-out hover:scale-[150%] duration-600'
+            className="w-12 h-12 rounded-full object-cover transition ease-in-out hover:scale-[150%] duration-600"
           />
-          <div className='ml-4'>
-            <h3 className='text-sm font-bold capitalize mb-1'>
+          <div className="ml-4">
+            <h3 className="text-sm font-bold capitalize mb-1">
               {reviewInfo.name}
             </h3>
             <Rating rating={reviewInfo.rating} />
@@ -49,7 +37,7 @@ function ReviewCard({ reviewInfo, children }: ReviewCardProps) {
       <CardContent>
         <Comment comment={reviewInfo.comment} />
       </CardContent>
-      <div className='absolute top-3 right-3'>{children}</div>
+      <div className="absolute top-3 right-3">{children}</div>
     </Card>
   );
 }
