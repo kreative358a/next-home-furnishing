@@ -8,7 +8,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-import { fetchAdminOrders } from "@/utils/actions";
+import { fetchAdminOrders } from "@/utils/actionsServer";
 import { formatCurrency, formatDate } from "@/utils/format";
 
 async function SalesPage() {

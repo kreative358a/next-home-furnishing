@@ -1,7 +1,7 @@
 import SectionTitle from "@/components/global/SectionTitle";
 //import ProductsGrid from "@/components/products/ProductsGrid";
-import ProductsGrid from "@/components/products/ProductsGrid";
-import { fetchUserFavorites } from "@/utils/actions";
+import ProductsGrid from "@/components/products-server/ProductsGrid";
+import { fetchUserFavorites } from "@/utils/actionsServer";
 
 async function FavoritesPage() {
   const favorites = await fetchUserFavorites();

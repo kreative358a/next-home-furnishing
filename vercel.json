@@ -5,6 +5,12 @@
     },
     "app/products-server/**/*": {
       "maxDuration": 30
+    },
+    "app/favorites/*": {
+      "maxDuration": 30
+    },
+    "app/reviews/*": {
+      "maxDuration": 30
     }
   }
 }

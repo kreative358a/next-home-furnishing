@@ -81,7 +81,7 @@ async function CartButtonDialog() {
               <DialogTitle>
                 <Link href={`/cart`}>
                   <DialogClose asChild>
-                    <Button className="w-[80%] mx-auto mt-8 text-sm lg:text-base 3xl:text-lg">
+                    <Button className="w-[600px] max-w-[94%] mx-auto mt-8 text-sm lg:text-base 3xl:text-lg">
                       redirect to cart
                     </Button>
                   </DialogClose>
