@@ -9,6 +9,7 @@ import Logo from "./Logo";
 import NavSearch from "./NavSearch";
 import { Suspense } from "react";
 import { Bounce, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Navbar() {
   return (
@@ -21,6 +22,12 @@ function Navbar() {
         zIndex: 11,
       }}
     >
+      <ToastContainer
+        transition={Bounce}
+        position="bottom-center"
+        theme="colored"
+        className="absolute z-60"
+      />
       <Container className="flex flex-col sm:flex-row sm:justify-around sm:items-center flex-wrap py-4 gap-4">
         <Logo />
         <Suspense>{/* <NavSearch /> */}</Suspense>

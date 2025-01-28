@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 // const text = "first try"
 // const type = "error"
 import { Bounce, toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Button } from "../ui/button";
 import { LuShoppingCart } from "react-icons/lu";
 
@@ -32,17 +33,44 @@ export function CartNotifyButton({
   };
 
   return (
-    <Button
-      asChild
-      variant="outline"
-      size="icon"
-      className="flex justify-center items-center relative"
-      onClick={notify}
-    >
-      <LuShoppingCart />
-      <span className="absolute -top-3 -right-3 bg-primary  text-white dark:text-blue-950 rounded-full h-6 w-6 flex items-center justify-center text-xs">
-        {numItemsInCart}
-      </span>
-    </Button>
+    <>
+      <div className="mt-10">
+        <Button size="lg" className="mt-10 max-lg:hidden text-lg">
+          Our Products
+        </Button>
+      </div>
+      <ToastContainer
+        transition={Bounce}
+        position="top-center"
+        theme="colored"
+      />
+    </>
   );
 }
+
+export function NotifyButton() {
+  const notify = () => {
+    toast.error("you have to be log in");
+  };
+
+  return (
+    <>
+      <Button onClick={notify} size="lg" className="mt-10 text-lg">
+        Our Products
+      </Button>
+    </>
+  );
+}
+
+// export function ToastContainer() {
+
+//   return (
+//       <ToastContainer
+//         transition={Bounce}
+//         position="bottom-center"
+//         theme="colored"
+//         className="absolute z-60"
+//       />
+
+//   );
+// }
