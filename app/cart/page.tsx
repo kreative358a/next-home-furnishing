@@ -44,13 +44,13 @@ async function CartPage() {
   const cartItemsNew = JSON.stringify(createOrderItemsJson(cartItems));
 
   // const cartItemsNew = removeProductKey(cartItems);
-  console.log("cartItemsNew: ", cartItemsNew);
-  console.log("typeof cartItemsNew: ", typeof cartItemsNew);
+  // console.log("cartItemsNew: ", cartItemsNew);
+  // console.log("typeof cartItemsNew: ", typeof cartItemsNew);
   return (
     <>
       <CarouselBackground />
-      <div className="productsContent px-0.5 sm:px-2 lg:p-4 pt-4 pb-4 lg:mt-2">
-        {cartItems.length === 0 ? (
+      <div className="productsContent px-0.5 sm:px-2 lg:p-4 pt-20 lg:pt-24 pb-4 lg:mt-2 ">
+        {numItemsInCart === 0 ? (
           <SectionTitle text="Empty Cart" />
         ) : (
           <>

@@ -8,6 +8,7 @@ import LinksDropdown from "./LinksDropdown";
 import Logo from "./Logo";
 import NavSearch from "./NavSearch";
 import { Suspense } from "react";
+import { Bounce, ToastContainer } from "react-toastify";
 
 function Navbar() {
   return (
