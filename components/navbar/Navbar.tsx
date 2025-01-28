@@ -11,7 +11,7 @@ import { Suspense } from "react";
 import { Bounce, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-function Navbar() {
+function Navbar({ isUser }: { isUser: string }) {
   return (
     <nav
       className="border-b bg-muted/40 py-4 backdrop-blur-md"
@@ -33,7 +33,7 @@ function Navbar() {
         <Suspense>{/* <NavSearch /> */}</Suspense>
         <div className="absolute flex gap-4 items-center right-10">
           {/* <CartButtonClient /> */}
-          <CartButton />
+          <CartButton isUser={isUser} />
           <CartButtonDialog />
 
           <DarkMode />

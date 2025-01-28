@@ -70,7 +70,11 @@ async function CartButtonDialog() {
           </Button>
         </DialogClose>
         {numItemsInCart === 0 ? (
-          <EmptyList className="text-secondary-foreground" />
+          <DialogHeader>
+            <DialogTitle>
+              <EmptyList className="text-secondary-foreground" />
+            </DialogTitle>
+          </DialogHeader>
         ) : (
           <>
             <DialogHeader>

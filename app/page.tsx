@@ -11,24 +11,7 @@ function HomePage() {
   return (
     <>
       <CarouselBackground />
-      <div
-        className="productsContent sm:px-2 pt-4 pb-4 lg:mt-2"
-        // style={{
-        //   position: "fixed",
-        //   zIndex: 9,
-        //   minWidth: "100%",
-        //   maxHeight: "94%",
-        //   maxWidth: "100%",
-        //   // minHeight: "100%",
-        //   top: "12%",
-        //   alignItems: "center",
-        //   justifyContent: "center",
-        //   flexDirection: "column",
-        //   left: 0,
-        //   paddingLeft: "20px",
-        //   paddingRight: "20px",
-        // }}
-      >
+      <div className="productsContent sm:px-2 pt-4 pb-4 lg:mt-2">
         <Hero />
         <Suspense fallback={<LoadingContainer />}>
           <FeaturedProducts />

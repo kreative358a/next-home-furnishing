@@ -17,7 +17,12 @@ type CartItemNew = {
   image: string;
 };
 
-async function OrderContent({ order }: { order: { [x: string]: any } }) {
+// async function OrderContent({ order }: { order: { [x: string]: any } }) {
+async function OrderContent({
+  order,
+}: {
+  order: { [x: string]: string | number };
+}) {
   // const { userId } = auth();
 
   // if (!userId) redirect("/");

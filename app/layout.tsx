@@ -12,6 +12,7 @@ import { dark, neobrutalism, shadesOfPurple } from "@clerk/themes";
 import { themeList } from "@/components/navbar/DarkMode";
 import ProvidersClient from "./providers-client";
 import ProvidersServer from "./providers-server";
+import { auth } from "@clerk/nextjs/server";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,91 +32,21 @@ export const metadata: Metadata = {
   description: "A nifty store built with Next.js",
 };
 
-// export default function RootLayout({
-//   children,
-// }: Readonly<{
-//   children: React.ReactNode;
-// }>) {
-//   const { theme, setTheme } = useTheme();
-//   return (
-
-//     <ClerkProvider
-//     appearance={{
-
-//       baseTheme: [neobrutalism, dark, shadesOfPurple],
-//       variables: { colorPrimary: 'blue' },
-//       signIn: {
-//         baseTheme: [shadesOfPurple],
-//         // variables: { colorPrimary: 'green' },
-//       },
-//     }}>
-//     <html lang="en" suppressHydrationWarning>
-//       <body
-//         className={`${geistSans.variable} ${geistMono.variable} ${inter.className} antialiased`}
-//       >
-//         <Providers>
-//           <Navbar />
-//           <Container className="py-20">{children}</Container>
-//         </Providers>
-//       </body>
-//     </html>
-//     </ClerkProvider>
-//   );
-// }
-
-// export default function RootLayout({
-//   children,
-// }: Readonly<{
-//   children: React.ReactNode;
-// }>) {
-//   // const { theme, setTheme } = useTheme();
-//   return (
-//     <ClerkProvider
-//       appearance={{
-//         elements: {
-//           cardBox:
-//             "bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100",
-//           card: "bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100",
-//           headerTitle: "text-slate-900 dark:text-slate-100",
-//           socialButtonsBlockButton:
-//             "bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-100",
-//           formFieldLabel: "text-slate-900 dark:text-slate-100",
-//           formFieldInput:
-//             "bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-100",
-//           footer:
-//             "bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100",
-//           formButtonPrimary:
-//             "bg-slate-300 hover:bg-slate-400 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border-2 border-slate-400 dark:bg-slate-700 dark:hover:bg-slate-800 outline-0 shadow-transparent",
-//         },
-//       }}
-//     >
-//       <html lang="en" suppressHydrationWarning>
-//         <body
-//           className={`${geistSans.variable} ${geistMono.variable} ${inter.className} antialiased`}
-//         >
-//           {typeof window !== "undefined" ? (
-//             <ProvidersClient>
-//               <Navbar />
-//               <Container className="py-2">{children}</Container>
-//             </ProvidersClient>
-//           ) : (
-//             <ProvidersServer>
-//               <Navbar />
-//               <Container className="py-2">{children}</Container>
-//             </ProvidersServer>
-//           )}
-//         </body>
-//       </html>
-//     </ClerkProvider>
-//   );
-// }
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   // const { theme, setTheme } = useTheme();
+  const { userId } = auth();
+
+  function AuthUser() {
+    if (!userId) {
+      return "false";
+    }
+    return "true";
+  }
+  const isUser = AuthUser();
   return (
     <ClerkProvider
       appearance={{
@@ -144,7 +75,7 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} ${inter.className} antialiased bg-muted/80 w-[100vw] h-[100vh] m-0`}
         >
           <ProvidersServer>
-            <Navbar />
+            <Navbar isUser={isUser} />
             <Container className="py-2">{children}</Container>
           </ProvidersServer>
         </body>

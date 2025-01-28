@@ -2,17 +2,17 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import { LuShoppingCart } from "react-icons/lu";
 import { fetchCartItems } from "@/utils/actions";
-import { auth } from "@clerk/nextjs/server";
+// import { auth } from "@clerk/nextjs/server";
 import { ShoppingCart } from "../global/NotifyToast";
 
-async function CartButton() {
+async function CartButton({ isUser }: { isUser: string }) {
   const numItemsInCart = await fetchCartItems();
-  const { userId } = auth();
+  // const { userId } = auth();
   // const numItemsInCart = 9
 
   return (
     <>
-      {userId ? (
+      {isUser === "true" ? (
         <Button
           asChild
           variant="outline"

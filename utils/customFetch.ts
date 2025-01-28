@@ -22,7 +22,7 @@ export const customFetchHF = axios.create({
   },
 });
 
-console.log(
-  "process.env.NEXT_PUBLIC_API_KEY: ",
-  process.env.NEXT_PUBLIC_API_KEY
-);
+// console.log(
+//   "process.env.NEXT_PUBLIC_API_KEY: ",
+//   process.env.NEXT_PUBLIC_API_KEY
+// );
