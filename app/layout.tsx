@@ -132,10 +132,10 @@ export default function RootLayout({
           footer:
             "bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100",
           formButtonPrimary:
-            "bg-slate-300 hover:bg-slate-400 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border-2 border-slate-400 dark:bg-slate-700 dark:hover:bg-slate-800 outline-0 shadow-transparent",
-          // otpCodeFieldInput:
-          //   "bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-100",
-          // formResendCodeLink: "text-slate-900 dark:text-slate-100",
+            "bg-slate-300 hover:bg-slate-400 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border-2 border-slate-400 dark:bg-slate-700 dark:hover:bg-slate-800 outline-0 shadow-transparent border-card-foreground/60",
+          otpCodeFieldInput:
+            "bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-100 border-2 border-",
+          formResendCodeLink: "text-slate-900 dark:text-slate-100",
         },
       }}
     >

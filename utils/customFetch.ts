@@ -16,7 +16,13 @@ export const customFetchHF = axios.create({
   // },
 
   headers: {
+    // Accept: 'application/json',
     "x-rapidapi-key": process.env.NEXT_PUBLIC_API_KEY as string,
     "x-rapidapi-host": "ikea-api.p.rapidapi.com",
   },
 });
+
+console.log(
+  "process.env.NEXT_PUBLIC_API_KEY: ",
+  process.env.NEXT_PUBLIC_API_KEY
+);

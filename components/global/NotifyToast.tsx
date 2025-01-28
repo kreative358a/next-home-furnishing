@@ -39,18 +39,18 @@ export function CartNotifyButton({
           Our Products
         </Button>
       </div>
-      <ToastContainer
+      {/* <ToastContainer
         transition={Bounce}
         position="top-center"
         theme="colored"
-      />
+      /> */}
     </>
   );
 }
 
 export function NotifyButton() {
   const notify = () => {
-    toast.error("you have to be log in");
+    toast.error("you have to be log in to continue");
   };
 
   return (
@@ -74,3 +74,26 @@ export function NotifyButton() {
 
 //   );
 // }
+
+export function ShoppingCart({ numItemsInCart }: { numItemsInCart: number }) {
+  const notify = () => {
+    toast.error("you have to be log in to continue");
+  };
+
+  return (
+    <>
+      <Button
+        // asChild
+        variant="outline"
+        size="icon"
+        className="flex justify-center items-center relative"
+        onClick={notify}
+      >
+        <LuShoppingCart />
+        <span className="absolute -top-3 -right-3 bg-primary  text-white dark:text-blue-950 rounded-full h-6 w-6 flex items-center justify-center text-xs">
+          {numItemsInCart}
+        </span>
+      </Button>
+    </>
+  );
+}
