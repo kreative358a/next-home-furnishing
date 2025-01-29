@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable @next/next/no-async-client-component */
 // "use client"
 
@@ -69,12 +70,12 @@ async function SingleProductButtonDialogContentServer({
                 </p>
               </Link>
               <div className="flex items-center gap-x-2">
-                <FavoriteToggleButton productId={productId} />
+                <FavoriteToggleButton productId={product.id} />
                 {/* <ShareButton name={product.name} productId={productId} />
                 <ShareButtonMobile name={product.name} productId={productId} /> */}
               </div>
             </div>
-            <ProductRating productId={productId} />
+            <ProductRating productId={product.id} />
             <p className="text-lg md:text-xl xl:text-2xl font-semibold dark:font-medium mt-2">
               {title}
             </p>
@@ -85,9 +86,9 @@ async function SingleProductButtonDialogContentServer({
               {company}
             </p>
 
-            <SingleProductAdd id={productId} product={product} />
+            <SingleProductAdd id={product.id} product={product} />
 
-            {reviewDoesNotExist && <SubmitReview productId={productId} />}
+            {reviewDoesNotExist && <SubmitReview productId={product.id} />}
           </div>
         </div>
       </div>
