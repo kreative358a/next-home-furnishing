@@ -102,7 +102,7 @@ function SingleProductAdd({
                     </p> */}
       </div>
       <div className="mt-3">
-        <p className="text-lg lg:text-xl 2xl:text-2xl font-semibold dark:font-medium tracking-wider">
+        <p className="text-lg lg:text-xl 3xl:text-2xl font-semibold dark:font-medium tracking-wider">
           colors
         </p>
         <div className="mt-2">
@@ -117,7 +117,7 @@ function SingleProductAdd({
                     backgroundColor: color || "transparent",
                     outline: "2px solid rgba(120, 120, 160, 0.4)",
                   }}
-                  className={`badge w-4 h-4 lg:w-6 lg:h-4 2xl:w-8 2xl:h-8 mr-4 lg:mr-6 box-shadow-around-sm ${
+                  className={`badge p-1 w-4 h-4 lg:w-6 lg:h-6 3xl:w-8 3xl:h-8 mr-2 lg:mr-4 box-shadow-around-sm ${
                     color === color && "border-2 border-secondary"
                   }`}
                   value={color}

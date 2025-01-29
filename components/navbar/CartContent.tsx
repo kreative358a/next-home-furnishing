@@ -48,8 +48,8 @@ async function CartContent() {
   const cartItemsNew = JSON.stringify(createOrderItemsJson(cartItems));
 
   // const cartItemsNew = removeProductKey(cartItems);
-  console.log("cartItemsNew: ", cartItemsNew);
-  console.log("typeof cartItemsNew: ", typeof cartItemsNew);
+  // console.log("cartItemsNew: ", cartItemsNew);
+  // console.log("typeof cartItemsNew: ", typeof cartItemsNew);
   return (
     <div
       // className="bg-scroll"
