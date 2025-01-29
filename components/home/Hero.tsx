@@ -2,12 +2,13 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import HeroCarousel from "./HeroCarousel";
 import { NotifyButton } from "../global/NotifyToast";
-import { auth } from "@clerk/nextjs/server";
+// import { auth } from "@clerk/nextjs/server";
 // import { useAuth } from "@clerk/clerk-react";
+import OurProducts from "./OurProducts";
 
 async function Hero() {
   // const { userId } = useAuth();
-  const { userId } = auth();
+  // const { userId } = auth();
   return (
     <div className="grid lg:grid-cols-2 gap-4 lg:gap-12 items-center bg-muted/60 p-4 rounded-md mx-auto">
       <div className="px-4 mx-auto ">
@@ -20,15 +21,7 @@ async function Hero() {
           unique products for everyone.
         </p>
         <div className="mt-10">
-          {userId ? (
-            <Button asChild size="lg" className="mt-10 max-lg:hidden text-lg">
-              <Link href="/products-server">Our Products</Link>
-            </Button>
-          ) : (
-            <>
-              <NotifyButton />
-            </>
-          )}
+          <OurProducts />
         </div>
       </div>
       <HeroCarousel />

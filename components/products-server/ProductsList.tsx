@@ -71,7 +71,7 @@ function ProductsList({ products }: { products: Product[] }) {
 
                 <div className="mt-2 sm:mt-4">
                   <AddToCartServer
-                    productId={id}
+                    productId={product.id}
                     color={color}
                     price={price}
                     name={name}
@@ -82,11 +82,11 @@ function ProductsList({ products }: { products: Product[] }) {
             </div>
             <div className="w-full md:w-auto items-center justify-between md:ml-auto flex flex-row md:flex-col">
               <div className="md:ml-[52px] ">
-                <FavoriteToggleButton productId={productId} />
+                <FavoriteToggleButton productId={product.id} />
               </div>
               <p className="text-muted-foreground text-lg  ">{dollarsAmount}</p>
               <div className="mt-[-6px] md:mt-[40px]">
-                <SingleProductDialogButtonServer productId={id} />
+                <SingleProductDialogButtonServer productId={product.id} />
               </div>
             </div>
           </div>

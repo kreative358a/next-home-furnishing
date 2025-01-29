@@ -15,7 +15,7 @@ import {
 import { LuShoppingCart } from "react-icons/lu";
 import { fetchCartItems } from "@/utils/actionsServer";
 import CartContent from "./CartContent";
-import { auth } from "@clerk/nextjs/server";
+
 import CartItemsList from "./CartItemsList";
 import CartTotals from "./CartTotals";
 import SectionTitle from "@/components/global/SectionTitle";

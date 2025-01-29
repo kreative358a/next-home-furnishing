@@ -16,6 +16,26 @@ import { deleteImage, uploadImage } from "./supabase";
 import { Cart, Product, CartItem } from "@prisma/client";
 import { setTimeout } from "timers";
 
+// user.emailAddresses[0].emailAddress,
+export const getAuthUserEmail = async () => {
+  const user = await currentUser();
+  if (!user) {
+    return "noEmail";
+  }
+  const userEmail = user.emailAddresses[0].emailAddress;
+  // console.log("getAuthUserEmail userEmail: ", userEmail);
+  return userEmail;
+};
+
+export const getAuthUserId = async () => {
+  const user = await currentUser();
+  if (!user) {
+    return "noId";
+  }
+  const userId = user.id;
+  return userId;
+};
+
 const getAuthUser = async () => {
   const user = await currentUser();
   if (!user) {

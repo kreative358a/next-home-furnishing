@@ -12,7 +12,8 @@ import { dark, neobrutalism, shadesOfPurple } from "@clerk/themes";
 import { themeList } from "@/components/navbar/DarkMode";
 import ProvidersClient from "./providers-client";
 import ProvidersServer from "./providers-server";
-import { auth } from "@clerk/nextjs/server";
+// import { auth, currentUser } from "@clerk/nextjs/server";
+// import { getAuthUserId } from "@/utils/actionsServer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -38,15 +39,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   // const { theme, setTheme } = useTheme();
-  const { userId } = auth();
-
-  function AuthUser() {
-    if (!userId) {
-      return "false";
-    }
-    return "true";
-  }
-  const isUser = AuthUser();
+  // const userId = getAuthUserId() as unknown as string;
+  // const userId = auth();
+  // const user = currentUser();
+  // console.log("userId: ", userId);
+  // console.log("user: ", user);
+  // console.log("user.emailAddresses[0].emailAddress", user.)
+  // console.log("RootLayout userId: ", userId);
+  // function AuthUser() {
+  //   if (!userId) {
+  //     return "false";
+  //   }
+  //   return "true";
+  // }
+  const isUser = "true";
   return (
     <ClerkProvider
       appearance={{

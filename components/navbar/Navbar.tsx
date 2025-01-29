@@ -10,11 +10,18 @@ import NavSearch from "./NavSearch";
 import { Suspense } from "react";
 import { Bounce, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+// import { cookies } from "next/headers";
+// import { getAuthUserEmail } from "@/utils/actionsServer";
+import UserEmail from "./UserEmail";
 
 function Navbar({ isUser }: { isUser: string }) {
+  // const userEmail = getAuthUserEmail() as unknown as string;
+  // console.log("userEmail: ", userEmail);
+  // const cookieStore = cookies();
+  // console.log("cookieStore: ", cookieStore);
   return (
     <nav
-      className="border-b bg-muted/40 py-4 backdrop-blur-md"
+      className="border-b bg-muted/40 py-2 3xl:py-4 backdrop-blur-md"
       style={{
         minWidth: "100%",
         height: "auto",
@@ -30,7 +37,9 @@ function Navbar({ isUser }: { isUser: string }) {
       />
       <Container className="flex flex-col sm:flex-row sm:justify-around sm:items-center flex-wrap py-4 gap-4">
         <Logo />
-        <Suspense>{/* <NavSearch /> */}</Suspense>
+        <Suspense>
+          <UserEmail />
+        </Suspense>
         <div className="absolute flex gap-4 items-center right-10">
           {/* <CartButtonClient /> */}
           <CartButton isUser={isUser} />
