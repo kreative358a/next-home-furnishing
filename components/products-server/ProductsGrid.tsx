@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Product } from "@prisma/client";
 import { formatCurrency } from "@/utils/format";
 import { Card, CardContent } from "@/components/ui/card";
@@ -51,7 +52,17 @@ function ProductsGrid({ products }: { products: Product[] }) {
                 </Tooltip>
               </TooltipProvider>
             </Link>
-            <div className="px-1 mt-4 md:px-2 items-center text-center">
+            <div className="px-1 my-4 md:px-2 items-center text-center">
+              <div className="w-full justify-center items-center flex flex-col gap-2 my-4">
+                <AddToCartServer
+                  productId={id}
+                  color={color}
+                  price={price}
+                  name={name}
+                  image={image}
+                />
+                <SingleProductDialogButtonServer productId={id} />
+              </div>
               <p className="text-lg lg:text-xl xl:text-2xl tracking-wider">
                 {name}
               </p>
@@ -74,17 +85,6 @@ function ProductsGrid({ products }: { products: Product[] }) {
               <p className="text-green-600 text-sm lg:text-base xl:text-lg bg-accent/60 px-2 rounded-sm mt-1">
                 category: {category}
               </p>
-
-              <div className="w-full justify-center items-center flex flex-col gap-2 my-4">
-                <AddToCartServer
-                  productId={id}
-                  color={color}
-                  price={price}
-                  name={name}
-                  image={image}
-                />
-                <SingleProductDialogButtonServer productId={id} />
-              </div>
             </div>
 
             {/* <div className="absolute w-full justify-center items-center flex flex-col gap-x-2 bottom-4 z-5 ml-[36px]">

@@ -136,22 +136,34 @@ function ProductsGridHF({ products }: { products: ProductHF[] }) {
               className="rounded-md md:rounded-xl h-auto w-full object-cover border-2 border-slate-500/20"
             />
           </figure>
-          <div className="px-1 mt-4 md:px-2 items-center text-center">
-            <p className="text-lg lg:text-xl xl:text-2xl tracking-wider">
-              {name}
-            </p>
-            <p className="text-sm lg:text-base 2xl:text-lg tracking-wider">
-              {imageAlt}
-            </p>
-            <p className=" text-base lg:text-lg xl:text-xl text-amber-500 mt-1">
-              Home Furnishings
-            </p>
-            <p className="text-base lg:text-lg xl:text-xl dark:text-medium text-semibold mt-1">
-              ${dollarsAmount.toFixed(2)}
-            </p>
-            <p className="text-green-600 text-sm lg:text-base xl:text-lg bg-accent/60 px-2 rounded-sm mt-1">
-              category: {categoryName}
-            </p>
+          <div>
+            <div
+              // className="w-full justify-center items-center flex flex-col gap-2 my-4"
+              className="w-full justify-center items-center flex flex-col gap-2 my-2 border-2"
+            >
+              <ProductDialogGridHF
+                key={`${id}-dialog-grid-key`}
+                id={`${id}-dialog-grid-id`}
+                product={product}
+              />
+            </div>
+            <div className="px-1 mt-2 mb-4 md:px-2 items-center text-center">
+              <p className="text-lg lg:text-xl xl:text-2xl tracking-wider">
+                {name}
+              </p>
+              <p className="text-sm lg:text-base 2xl:text-lg tracking-wider">
+                {imageAlt}
+              </p>
+              <p className=" text-base lg:text-lg xl:text-xl text-amber-500 mt-1">
+                Home Furnishings
+              </p>
+              <p className="text-base lg:text-lg xl:text-xl dark:text-medium text-semibold mt-1">
+                ${dollarsAmount.toFixed(2)}
+              </p>
+              <p className="text-green-600 text-sm lg:text-base xl:text-lg bg-accent/60 px-2 rounded-sm mt-1">
+                category: {categoryName}
+              </p>
+            </div>
             {/* <div className="py-4">
               <p
                 className="mt-4 text-xl font-semibold px-1 pb-0.5 w-24 border-2 border-secondary/60 hover:border-secondary/80 align-center cursor-pointer text-center rounded bg-secondary/40 hover:bg-secondary/60 text-red-600 ml-[-48px] max-h-[40px] absolute bottom-4"
@@ -165,13 +177,6 @@ function ProductsGridHF({ products }: { products: ProductHF[] }) {
               </p>
             </div>
             <ProductDialogHF key={id} id={id} product={product} /> */}
-            <div className="w-full justify-center items-center flex flex-col gap-2 my-4">
-              <ProductDialogGridHF
-                key={`${id}-dialog-grid-key`}
-                id={`${id}-dialog-grid-id`}
-                product={product}
-              />
-            </div>
           </div>
         </article>
       );
