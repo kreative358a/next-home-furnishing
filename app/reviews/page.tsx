@@ -14,7 +14,7 @@ async function ReviewsPage() {
   }
 
   return (
-    <>
+    <div className="productsContent px-0.5 sm:px-2 pt-4 pb-4 lg:mt-2">
       <SectionTitle text="Your Reviews" />
       <section className="grid md:grid-cols-2 xl:grid-cols-3 gap-8 mt-4">
         {reviews.map((review) => {
@@ -28,7 +28,7 @@ async function ReviewsPage() {
           );
         })}
       </section>
-    </>
+    </div>
   );
 }
 
