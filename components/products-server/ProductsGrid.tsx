@@ -20,7 +20,7 @@ function ProductsGrid({ products }: { products: Product[] }) {
     <div className="pt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5">
       {products.map((product) => {
         const { id, name, price, image, company, color, category } = product;
-        // const productId = product.id;
+        const productId = product.id;
         const dollarsAmount = formatCurrency(price);
         return (
           <article
@@ -60,7 +60,7 @@ function ProductsGrid({ products }: { products: Product[] }) {
                   name={product.name}
                   image={product.image}
                 />
-                <SingleProductDialogButtonServer productId={product.id} />
+                <SingleProductDialogButtonServer productId={productId} />
               </div>
               <p className="text-lg lg:text-xl xl:text-2xl tracking-wider">
                 {name}
