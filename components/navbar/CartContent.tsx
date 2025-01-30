@@ -53,7 +53,7 @@ async function CartContent() {
   return (
     <div
       // className="bg-scroll"
-      className="dialog-content max-h-[700px] pl-2 pr-0 sm:p-4"
+      className="dialog-content h-[90%] 3xl:h-[100%] max-h-[700px] pl-2 pr-0 sm:p-4"
     >
       <SectionTitle text="Shopping Cart" />
       <div className="mt-8 flex flex-col lg:grid gap-4 lg:grid-cols-12 ">

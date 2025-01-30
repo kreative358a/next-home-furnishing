@@ -6,7 +6,7 @@
 import { fetchSingleProduct, findExistingReview } from "@/utils/actionsServer";
 import { formatCurrency } from "@/utils/format";
 // import FavoriteToggleButton from "./FavoriteToggleButton";
-// import ProductRating from "@/components/single-product/ProductRating";
+import ProductRating from "@/components/single-product/ProductRating";
 import CarouselSwiper from "@/components/global/CarouselSwiper";
 import Link from "next/link";
 // lek 675
@@ -77,7 +77,7 @@ async function CartButtonDialogGridContent({
                 <ShareButtonMobile name={product.name} productId={productId} /> */}
               </div>
             </div>
-            {/* <ProductRating productId={product.id} /> */}
+            <ProductRating productId={product.id} />
             <p className="text-lg md:text-xl xl:text-2xl font-semibold dark:font-medium mt-2">
               {title}
             </p>
