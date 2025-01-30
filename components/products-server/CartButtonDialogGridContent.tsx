@@ -2,11 +2,11 @@
 /* eslint-disable @next/next/no-async-client-component */
 // "use client"
 
-import { auth } from "@clerk/nextjs/server";
+// import { auth } from "@clerk/nextjs/server";
 import { fetchSingleProduct, findExistingReview } from "@/utils/actionsServer";
 import { formatCurrency } from "@/utils/format";
-import FavoriteToggleButton from "./FavoriteToggleButton";
-import ProductRating from "@/components/single-product/ProductRating";
+// import FavoriteToggleButton from "./FavoriteToggleButton";
+// import ProductRating from "@/components/single-product/ProductRating";
 import CarouselSwiper from "@/components/global/CarouselSwiper";
 import Link from "next/link";
 // lek 675

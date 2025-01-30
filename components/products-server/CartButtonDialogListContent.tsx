@@ -23,10 +23,10 @@ async function CartButtonDialogListContent({
   const { name, image, company, price, title, category, type, productJson } =
     productDialogList;
   const dollarsAmount = formatCurrency(price);
-  const { userId } = auth();
-  const userIdList: string | null = userId;
-  const reviewDoesNotExist =
-    userIdList && !(await findExistingReview(userIdList, productDialogList.id));
+  // const { userId } = auth();
+  // const userIdList: string | null = userId;
+  // const reviewDoesNotExist =
+  //   userIdList && !(await findExistingReview(userIdList, productDialogList.id));
 
   return (
     <div
@@ -63,21 +63,17 @@ async function CartButtonDialogListContent({
                   {name}{" "}
                 </p>
               </Link>
-              {userIdList ? (
+              {/* {userIdList ? (
                 <div className="flex items-center gap-x-2">
                   <FavoriteToggleButtonDialogList
                     productId={productDialogList.id}
                     userIdList={userIdList}
                   />
-                  {/* <ShareButton name={product.name} productId={productId} />
-                <ShareButtonMobile name={product.name} productId={productId} /> */}
                 </div>
               ) : (
                 <div className="flex items-center gap-x-2">
-                  {/* <ShareButton name={product.name} productId={productId} />
-                <ShareButtonMobile name={product.name} productId={productId} /> */}
                 </div>
-              )}
+              )} */}
             </div>
             <ProductRating productId={productDialogList.id} />
             <p className="text-lg md:text-xl xl:text-2xl font-semibold dark:font-medium mt-2">
@@ -98,9 +94,9 @@ async function CartButtonDialogListContent({
             {/* {reviewDoesNotExist && (
               <SubmitReview productId={productDialogList.id} />
             )} */}
-            {reviewDoesNotExist && (
+            {/* {reviewDoesNotExist && (
               <SubmitReviewServerList productId={productDialogList.id} />
-            )}
+            )} */}
           </div>
         </div>
       </div>
