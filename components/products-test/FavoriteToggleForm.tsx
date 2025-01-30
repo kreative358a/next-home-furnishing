@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import FormContainer from "../form/FormContainer";
 // import { toggleFavoriteAction } from '@/utils/actions';
-import { toggleFavoriteAction } from "@/utils/actionsServer";
+import { toggleFavoriteAction } from "@/utils/actionsTest";
 import { CardSubmitButton } from "../form/Buttons";
 
 type FavoriteToggleFormProps = {

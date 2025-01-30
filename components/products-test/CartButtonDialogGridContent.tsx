@@ -3,7 +3,7 @@
 // "use client"
 
 import { auth } from "@clerk/nextjs/server";
-import { fetchSingleProduct, findExistingReview } from "@/utils/actionsServer";
+import { fetchSingleProduct, findExistingReview } from "@/utils/actionsTest";
 import { formatCurrency } from "@/utils/format";
 import FavoriteToggleButton from "./FavoriteToggleButton";
 import ProductRating from "@/components/single-product/ProductRating";
@@ -11,9 +11,9 @@ import CarouselSwiper from "@/components/global/CarouselSwiper";
 import Link from "next/link";
 // lek 675
 import SubmitReview from "@/components/reviews/SubmitReview";
-import SingleProductAdd from "./SingleProductAdd";
+import ProductAddDialogTest from "./ProductAddDialogTest";
 
-async function SingleProductButtonDialogContentServer({
+async function CartButtonDialogGridContent({
   productId,
 }: {
   productId: string;
@@ -31,11 +31,11 @@ async function SingleProductButtonDialogContentServer({
     productJson,
   } = product;
   const dollarsAmount = formatCurrency(price);
-  // const { userId } = auth();
-
-  // const reviewDoesNotExist =
-  //   userId && !(await findExistingReview(userId, product.id));
+  const { userId } = auth();
   const productIdGrid = product.id;
+  const reviewDoesNotExist =
+    userId && !(await findExistingReview(userId, productIdGrid));
+
   return (
     <div
       // className="bg-scroll"
@@ -72,12 +72,12 @@ async function SingleProductButtonDialogContentServer({
                 </p>
               </Link>
               <div className="flex items-center gap-x-2">
-                {/* <FavoriteToggleButton productId={product.id} /> */}
+                <FavoriteToggleButton productId={productIdGrid} />
                 {/* <ShareButton name={product.name} productId={productId} />
                 <ShareButtonMobile name={product.name} productId={productId} /> */}
               </div>
             </div>
-            {/* <ProductRating productId={product.id} /> */}
+            <ProductRating productId={product.id} />
             <p className="text-lg md:text-xl xl:text-2xl font-semibold dark:font-medium mt-2">
               {title}
             </p>
@@ -88,13 +88,13 @@ async function SingleProductButtonDialogContentServer({
               {company}
             </p>
 
-            <SingleProductAdd id={productIdGrid} product={product} />
+            <ProductAddDialogTest id={productIdGrid} product={product} />
 
-            {/* {reviewDoesNotExist && <SubmitReview productId={product.id} />} */}
+            {reviewDoesNotExist && <SubmitReview productId={productIdGrid} />}
           </div>
         </div>
       </div>
     </div>
   );
 }
-export default SingleProductButtonDialogContentServer;
+export default CartButtonDialogGridContent;

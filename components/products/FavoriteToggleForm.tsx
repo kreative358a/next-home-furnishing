@@ -1,9 +1,9 @@
-'use client';
+"use client";
 // usePathname Client Component hook that lets you read the current URL's pathname.
-import { usePathname } from 'next/navigation';
-import FormContainer from '../form/FormContainer';
-import { toggleFavoriteAction } from '@/utils/actions';
-import { CardSubmitButton } from '../form/Buttons';
+import { usePathname } from "next/navigation";
+import FormContainer from "../form/FormContainer";
+import { toggleFavoriteAction } from "@/utils/actions";
+import { CardSubmitButton } from "../form/Buttons";
 
 type FavoriteToggleFormProps = {
   productId: string;
@@ -15,6 +15,7 @@ function FavoriteToggleForm({
   favoriteId,
 }: FavoriteToggleFormProps) {
   const pathname = usePathname();
+
   const toggleAction = toggleFavoriteAction.bind(null, {
     productId,
     favoriteId,

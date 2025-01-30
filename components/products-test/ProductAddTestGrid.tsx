@@ -17,7 +17,7 @@ import "swiper/css/navigation";
 
 import { nanoid } from "nanoid";
 
-import AddToCartServerAmount from "./AddToCartServerAmount";
+import AddToCartTestAmount from "./AddToCartTestAmount";
 import { formatCurrency } from "@/utils/format";
 import { Product } from "@prisma/client";
 
@@ -154,9 +154,7 @@ function SingleProductAdd({
         </div>
       </div>
       <div className="ml-[48px] mt-[36px]">
-        <AddToCartServerAmount
-          // addToCart={addToCart}
-          // productId={product.originId}
+        <AddToCartTestAmount
           name={name}
           image={image}
           productId={product.id}

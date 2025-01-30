@@ -14,10 +14,11 @@ import { useState } from "react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { usePathname } from "next/navigation";
 
 import { nanoid } from "nanoid";
 
-import AddToCartServerAmount from "./AddToCartServerAmount";
+import AddToCartTestAmount from "./AddToCartTestAmount";
 import { formatCurrency } from "@/utils/format";
 import { Product } from "@prisma/client";
 
@@ -32,7 +33,7 @@ function generateAmountOptions(number: number) {
   });
 }
 
-function SingleProductAdd({
+function ProductAddDialogTest({
   id,
   //productId,
   product,
@@ -154,7 +155,7 @@ function SingleProductAdd({
         </div>
       </div>
       <div className="ml-[48px] mt-[36px]">
-        <AddToCartServerAmount
+        <AddToCartTestAmount
           // addToCart={addToCart}
           // productId={product.originId}
           name={name}
@@ -169,4 +170,4 @@ function SingleProductAdd({
     </div>
   );
 }
-export default SingleProductAdd;
+export default ProductAddDialogTest;

@@ -13,7 +13,7 @@ import Link from "next/link";
 import SubmitReview from "@/components/reviews/SubmitReview";
 import SingleProductAdd from "./SingleProductAdd";
 
-async function SingleProductButtonDialogContentServer({
+async function CartButtonDialogGridContent({
   productId,
 }: {
   productId: string;
@@ -97,4 +97,5 @@ async function SingleProductButtonDialogContentServer({
     </div>
   );
 }
-export default SingleProductButtonDialogContentServer;
+
+export default CartButtonDialogGridContent;
