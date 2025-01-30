@@ -5,7 +5,7 @@ import { Product } from "@prisma/client";
 import Image from "next/image";
 import FavoriteToggleButton from "./FavoriteToggleButton";
 import AddToCartServer from "./AddToCartServer";
-import SingleProductDialogButtonServer from "./SingleProductDialogButtonServer";
+import CartButtonDialogList from "./CartButtonDialogList";
 import {
   Tooltip,
   TooltipContent,
@@ -20,19 +20,20 @@ function ProductsList({ products }: { products: Product[] }) {
       className="md:px-2 py-4 sm:p-4 2xl:p-6 grid gap-y-2 sm:gap-y-4"
     >
       {products.map((product) => {
-        const { id, name, price, image, company, color, category } = product;
+        const { name, price, image, company, color, category } = product;
         const dollarsAmount = formatCurrency(price);
         const productId = product.id;
+        const productIdList = product.id;
         return (
           <div
-            key={`${id}-list`}
+            key={`${productIdList}-list`}
             // key={nanoid()}
             // key={id}
             // to={`/products-hf/${item.id}`}
             className="p-4 rounded-md flex flex-col sm:flex-row gap-y-4 flex-wrap  bg-secondary/70 shadow-xl hover:shadow-2xl duration-300 group border-2 hover:border-2 border-blue-300/10 hover:border-blue-300/40 hover:bg-secondary/80"
           >
             <div className="flex flex-row">
-              <Link href={`/products-server/${productId}`}>
+              <Link href={`/products-server/${productIdList}`}>
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger asChild>
@@ -71,7 +72,7 @@ function ProductsList({ products }: { products: Product[] }) {
 
                 <div className="mt-2 sm:mt-4">
                   <AddToCartServer
-                    productId={product.id}
+                    productId={productIdList}
                     color={color}
                     price={price}
                     name={name}
@@ -82,11 +83,11 @@ function ProductsList({ products }: { products: Product[] }) {
             </div>
             <div className="w-full md:w-auto items-center justify-between md:ml-auto flex flex-row md:flex-col">
               <div className="md:ml-[52px] ">
-                <FavoriteToggleButton productId={product.id} />
+                <FavoriteToggleButton productId={productIdList} />
               </div>
               <p className="text-muted-foreground text-lg  ">{dollarsAmount}</p>
               <div className="mt-[-6px] md:mt-[40px]">
-                <SingleProductDialogButtonServer productId={product.id} />
+                <CartButtonDialogList productId={productIdList} />
               </div>
             </div>
           </div>

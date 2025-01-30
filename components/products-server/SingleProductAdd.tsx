@@ -4,12 +4,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState } from "react";
 // import { useDispatch } from "react-redux";
-import { addItem } from "@/features/cart/cartSlice";
-import { Swiper as SwiperProduct } from "swiper/react";
-import { SwiperSlide as SwiperSlideProduct } from "swiper/react";
-import { Pagination, Navigation } from "swiper/modules";
+// import { addItem } from "@/features/cart/cartSlice";
+// import { Swiper as SwiperProduct } from "swiper/react";
+// import { SwiperSlide as SwiperSlideProduct } from "swiper/react";
+// import { Pagination, Navigation } from "swiper/modules";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";

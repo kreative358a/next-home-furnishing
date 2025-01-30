@@ -21,6 +21,7 @@ function ProductsGrid({ products }: { products: Product[] }) {
       {products.map((product) => {
         const { id, name, price, image, company, color, category } = product;
         const productId = product.id;
+        const productIdGrid = product.id;
         const dollarsAmount = formatCurrency(price);
         return (
           <article
