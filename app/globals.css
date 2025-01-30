@@ -270,6 +270,10 @@ body {
   overflow-y: auto;
   max-height: 90%;
 }
+.dialog-content-background {
+  overflow-y: auto;
+  max-height: 80%;
+}
 
 .dialog-content-main::-webkit-scrollbar,
 .dialog-content-background::-webkit-scrollbar,

@@ -3,7 +3,19 @@
     "app/products-api/**/*": {
       "maxDuration": 30
     },
+    "app/products-api/*": {
+      "maxDuration": 30
+    },
     "app/products-server/**/*": {
+      "maxDuration": 30
+    },
+    "app/products-server/*": {
+      "maxDuration": 30
+    },
+    "app/products-test/**/*": {
+      "maxDuration": 30
+    },
+    "app/products-test/*": {
       "maxDuration": 30
     },
     "app/favorites/*": {

@@ -5,7 +5,7 @@ import { Product } from "@prisma/client";
 import Image from "next/image";
 import FavoriteToggleButton from "./FavoriteToggleButton";
 import AddToCartClient from "./AddToCartClient";
-import SingleProductDialogButtonServer from "./SingleProductDialogButtonServer";
+import CartButtonDialogList from "./CartButtonDialogList";
 
 function ProductsList({ products }: { products: Product[] }) {
   return (
@@ -54,7 +54,7 @@ function ProductsList({ products }: { products: Product[] }) {
                 <p className="text-muted-foreground text-lg md:ml-auto">
                   {dollarsAmount}
                 </p>
-                <SingleProductDialogButtonServer productId={id} />
+                <CartButtonDialogList productId={id} />
               </CardContent>
             </Card>
 
