@@ -88,7 +88,7 @@ async function CartButtonDialog() {
                 </Link>
               </DialogTitle>
             </DialogHeader>
-            <div className="dialog-content-background max-h-[760px] text-secondary-foreground">
+            <div className="pl-2 pr-0 sm:p-4 dialog-content-background-cart max-h-[760px] bg-muted/20 hover:bg-muted/40 text-secondary-foreground">
               <CartContent />
             </div>
           </>

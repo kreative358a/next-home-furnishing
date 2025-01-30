@@ -274,6 +274,9 @@ body {
   overflow-y: auto;
   max-height: 100%;
 }
+.dialog-content-background-cart {
+  overflow-y: auto;
+}
 
 .dialog-content-main::-webkit-scrollbar,
 .dialog-content-background::-webkit-scrollbar,
