@@ -35,13 +35,17 @@ function Navbar({ isUser }: { isUser: string }) {
         theme="colored"
         className="absolute z-60"
       />
-      <Container className="flex flex-col sm:flex-row sm:justify-around sm:items-center flex-wrap py-4 gap-4">
-        <Logo />
-        <Suspense>
+      <Container className="grid grid-col sm:flex sm:flex-row sm:justify-items-end sm:items-center py-4 gap-4">
+        <div className="flex flex-row gap-4">
+          <Logo />
           <UserEmail />
-        </Suspense>
-        <div className="absolute flex gap-4 items-center right-10">
+        </div>
+        {/* <Suspense>
+        </Suspense> */}
+
+        <div className=" md:absolute flex gap-4 items-center right-10">
           {/* <CartButtonClient /> */}
+
           <CartButton isUser={isUser} />
           <CartButtonDialog />
 

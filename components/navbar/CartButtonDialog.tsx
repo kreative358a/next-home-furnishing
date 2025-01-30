@@ -81,14 +81,14 @@ async function CartButtonDialog() {
               <DialogTitle>
                 <Link href={`/cart`}>
                   <DialogClose asChild>
-                    <Button className="w-[600px] max-w-[94%] mx-auto mt-8 text-sm lg:text-base 3xl:text-lg">
+                    <Button className="ml-[12px] w-[600px] max-w-[94%] mx-auto mt-8 text-sm lg:text-base 3xl:text-lg">
                       redirect to cart
                     </Button>
                   </DialogClose>
                 </Link>
               </DialogTitle>
             </DialogHeader>
-            <div className="pl-2 pr-0 sm:p-4 dialog-content-background-cart max-h-[760px] bg-muted/20 hover:bg-muted/40 text-secondary-foreground">
+            <div className=" dialog-content-background-cart h-[80%] 3xl:h-[100%] max-h-[760px] bg-muted/20 hover:bg-muted/40 text-secondary-foreground">
               <CartContent />
             </div>
           </>

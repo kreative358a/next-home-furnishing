@@ -3,6 +3,7 @@ import {
   currentUser,
   // auth
 } from "@clerk/nextjs/server";
+import { Button } from "../ui/button";
 
 async function UserEmail() {
   // const { userId } = auth()
@@ -12,9 +13,25 @@ async function UserEmail() {
   const profileEmail = user?.emailAddresses[0].emailAddress;
 
   if (profileEmail) {
-    return <p>Welcome {profileEmail.split("@")[0]}</p>;
+    return (
+      <Button
+        size="lg"
+        variant="outline"
+        className="bg-muted/10 text-lg text-blue-800 dark:text-blue-400"
+      >
+        Welcome {profileEmail.split("@")[0]}
+      </Button>
+    );
   }
 
-  return <p>Welcome Guest</p>;
+  return (
+    <Button
+      size="lg"
+      variant="outline"
+      className="bg-muted/10 text-lg text-blue-800 dark:text-blue-400"
+    >
+      Welcome Guest
+    </Button>
+  );
 }
 export default UserEmail;

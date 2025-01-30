@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils";
 
 function Container({
   children,
@@ -8,7 +8,12 @@ function Container({
   className?: string;
 }) {
   return (
-    <div className={cn('px-2 sm:px-4 mx-auto max-w-6xl xl:max-w-7xl md:px-8 2xl:max-w-[90%]', className)}>
+    <div
+      className={cn(
+        "px-2 sm:px-4 mx-auto w-[90%] xl:w-[80%] md:px-8 2xl:w-[70%]",
+        className
+      )}
+    >
       {children}
     </div>
   );
