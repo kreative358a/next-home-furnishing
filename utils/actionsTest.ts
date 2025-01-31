@@ -15,6 +15,7 @@ import {
 import { deleteImage, uploadImage } from "./supabase";
 import { Cart, Product, CartItem } from "@prisma/client";
 import { setTimeout } from "timers";
+import { unstable_noStore as noStore } from "next/cache";
 
 // user.emailAddresses[0].emailAddress,
 export const getAuthUserEmail = async () => {
@@ -103,21 +104,99 @@ export const fetchFeaturedProductsUrl = async () => {
   return products;
 };
 
-export const fetchAllProducts = ({ search = "" }: { search: string }) => {
-  return db.product.findMany({
-    where: {
-      OR: [
-        // { name: { contains: search, mode: "insensitive" } },
-        { title: { contains: search, mode: "insensitive" } },
-        { category: { contains: search, mode: "insensitive" } },
-        { colors: { contains: search, mode: "insensitive" } },
-      ],
-    },
-    orderBy: {
-      createdAt: "desc",
-    },
-  });
+// export const fetchAllProducts = ({ search = "" }: { search: string }) => {
+//   return db.product.findMany({
+//     where: {
+//       OR: [
+//         // { name: { contains: search, mode: "insensitive" } },
+//         { title: { contains: search, mode: "insensitive" } },
+//         { category: { contains: search, mode: "insensitive" } },
+//         { colors: { contains: search, mode: "insensitive" } },
+//       ],
+//     },
+//     orderBy: {
+//       createdAt: "desc",
+//     },
+//   });
+// };
+
+export const fetchAllProducts = ({
+  page,
+  search = "",
+}: {
+  page: number;
+  search: string;
+}) => {
+  try {
+    return db.product.findMany({
+      where: {
+        OR: [
+          // { name: { contains: search, mode: "insensitive" } },
+          { title: { contains: search, mode: "insensitive" } },
+          { category: { contains: search, mode: "insensitive" } },
+          { colors: { contains: search, mode: "insensitive" } },
+        ],
+      },
+      skip: (page - 1) * 10,
+      take: 10,
+
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+  } catch (error) {
+    console.log(error);
+    throw new Error("Error getting orders");
+  }
 };
+
+// export async function getProductsCount(search: string) {
+//   try {
+//     return await db.product.count({
+//       where: {
+//         OR: [
+//           // { name: { contains: search, mode: "insensitive" } },
+//           { title: { contains: search, mode: "insensitive" } },
+//           { category: { contains: search, mode: "insensitive" } },
+//           { colors: { contains: search, mode: "insensitive" } },
+//         ],
+//       },
+//     });
+//   } catch (error) {
+//     console.log(error);
+//     throw new Error("Error getting orders count");
+//   }
+// }
+
+// export async function fetchProductsCount({ search = "" }: { search: string }) {
+export async function fetchProductsCount({ search = "" }: { search: string }) {
+  try {
+    // return db.product.findMany({
+    return db.product.count({
+      where: {
+        OR: [
+          // { name: { contains: search, mode: "insensitive" } },
+          { title: { contains: search, mode: "insensitive" } },
+          { category: { contains: search, mode: "insensitive" } },
+          { colors: { contains: search, mode: "insensitive" } },
+        ],
+      },
+    });
+  } catch (error) {
+    console.log(error);
+    throw new Error("Error getting orders count");
+  }
+}
+
+export async function fetchProductsAll() {
+  try {
+    // return db.product.findMany({
+    return db.product.count({});
+  } catch (error) {
+    console.log(error);
+    throw new Error("Error getting orders count");
+  }
+}
 
 export const fetchAllProductsUrl = ({ search = "" }: { search: string }) => {
   return db.product.findMany({
@@ -169,7 +248,7 @@ export const fetchSingleProductNew = (productId: string) => {
     },
   });
   if (!product) {
-    redirect("/products-server");
+    redirect("/products-test");
   }
   return product;
 };
@@ -526,7 +605,7 @@ export const createOrAddProductActionUrl = async (
             });
             await updateCart(cart);
             await fetchCartItems();
-            revalidatePath("/products-server");
+            revalidatePath("/products-test");
             return { message: "PRODUCT CREATED AND ADDED TO CART" };
           } catch (error) {
             // return renderErrorUrl(error);
@@ -569,7 +648,7 @@ export const createOrAddProductActionUrl = async (
         });
         await updateCart(cart);
         await fetchCartItems();
-        revalidatePath("/products-server");
+        revalidatePath("/products-test");
         return { message: "PRODUCT ADDED TO CART" };
       } catch (error) {
         // return renderErrorUrl(error);
@@ -737,7 +816,7 @@ export const fetchFavoriteIdPage = async ({
       id: true,
     },
   });
-  revalidatePath("/products-server");
+  revalidatePath("/products-test");
   return favorite?.id || null;
 };
 
@@ -756,7 +835,7 @@ export const fetchFavoriteIdPageDialog = async ({
       id: true,
     },
   });
-  revalidatePath("/products-server");
+  revalidatePath("/products-test");
   return favorite?.id || null;
 };
 
@@ -775,7 +854,7 @@ export const fetchFavoriteIdSinglePage = async ({
       id: true,
     },
   });
-  // revalidatePath(`/products-server/${productId}`);
+  // revalidatePath(`/products-test/${productId}`);
   return favorite?.id || null;
 };
 
@@ -1252,7 +1331,7 @@ export async function addToCartActionNew(prevState: any, formData: FormData) {
   } catch (error) {
     return renderErrorUrl(error);
   }
-  redirect(`/products-server`);
+  redirect(`/products-test`);
   // return { message: "product added" };
 }
 
@@ -1320,11 +1399,11 @@ export async function addToCartActionTestOne(
     });
     await updateCart(cart);
     await fetchCartItems();
-    // revalidatePath("/products-server");
+    // revalidatePath("/products-test");
   } catch (error) {
     return renderErrorUrl(error);
   }
-  revalidatePath("/products-server");
+  revalidatePath("/products-test");
   return { message: "product added" };
   // redirect('/cart');
 }
@@ -1357,7 +1436,7 @@ export async function addToCartActionTestSinglePage(
     });
     await updateCart(cart);
     await fetchCartItems();
-    revalidatePath(`/products-server/${productId}`);
+    revalidatePath(`/products-test/${productId}`);
   } catch (error) {
     return renderErrorUrl(error);
   }

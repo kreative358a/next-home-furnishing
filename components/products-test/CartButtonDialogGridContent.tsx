@@ -31,10 +31,10 @@ async function CartButtonDialogGridContent({
     productJson,
   } = product;
   const dollarsAmount = formatCurrency(price);
-  const { userId } = auth();
+  // const { userId } = auth();
   const productIdGrid = product.id;
-  const reviewDoesNotExist =
-    userId && !(await findExistingReview(userId, productIdGrid));
+  // const reviewDoesNotExist =
+  //   userId && !(await findExistingReview(userId, productIdGrid));
 
   return (
     <div
@@ -66,13 +66,13 @@ async function CartButtonDialogGridContent({
           {/* PRODUCT INFO SECOND COL */}
           <div>
             <div className="flex gap-x-8 items-center">
-              <Link href={`/products-server/${productIdGrid}`}>
+              <Link href={`/products-test/${productIdGrid}`}>
                 <p className="text-xl md:text-2xl xl:text-3xl font-semibold dark:font-medium mt-3">
                   {name}{" "}
                 </p>
               </Link>
               <div className="flex items-center gap-x-2">
-                <FavoriteToggleButton productId={productIdGrid} />
+                {/* <FavoriteToggleButton productId={productIdGrid} /> */}
                 {/* <ShareButton name={product.name} productId={productId} />
                 <ShareButtonMobile name={product.name} productId={productId} /> */}
               </div>
@@ -90,7 +90,7 @@ async function CartButtonDialogGridContent({
 
             <ProductAddDialogTest id={productIdGrid} product={product} />
 
-            {reviewDoesNotExist && <SubmitReview productId={productIdGrid} />}
+            {/* {reviewDoesNotExist && <SubmitReview productId={productIdGrid} />} */}
           </div>
         </div>
       </div>

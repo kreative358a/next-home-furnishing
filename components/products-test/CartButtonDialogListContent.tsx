@@ -24,8 +24,8 @@ async function CartButtonDialogListContent({
   const dollarsAmount = formatCurrency(price);
   const { userId } = auth();
   const userIdList: string | null = userId;
-  const reviewDoesNotExist =
-    userIdList && !(await findExistingReview(userIdList, productDialogList.id));
+  // const reviewDoesNotExist =
+  //   userIdList && !(await findExistingReview(userIdList, productDialogList.id));
 
   return (
     <div
@@ -57,7 +57,7 @@ async function CartButtonDialogListContent({
           {/* PRODUCT INFO SECOND COL */}
           <div>
             <div className="flex gap-x-8 items-center">
-              <Link href={`/products-server/${productDialogList.id}`}>
+              <Link href={`/products-test/${productDialogList.id}`}>
                 <p className="text-xl md:text-2xl xl:text-3xl font-semibold dark:font-medium mt-3">
                   {name}{" "}
                 </p>
@@ -97,9 +97,9 @@ async function CartButtonDialogListContent({
             {/* {reviewDoesNotExist && (
               <SubmitReview productId={productDialogList.id} />
             )} */}
-            {reviewDoesNotExist && (
+            {/* {reviewDoesNotExist && (
               <SubmitReviewTestList productId={productDialogList.id} />
-            )}
+            )} */}
           </div>
         </div>
       </div>

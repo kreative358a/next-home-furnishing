@@ -32,7 +32,7 @@ function ProductsGrid({ products }: { products: Product[] }) {
             <div className="absolute ml-[20px] mt-[20px] md:ml-[30px] md:mt-[30px]">
               <FavoriteToggleButton productId={productIdGrid} />
             </div>
-            <Link href={`/products-server/${productIdGrid}`}>
+            <Link href={`/products-test/${productIdGrid}`}>
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>

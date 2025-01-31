@@ -33,7 +33,7 @@ function ProductsList({ products }: { products: Product[] }) {
             className="p-4 rounded-md flex flex-col sm:flex-row gap-y-4 flex-wrap  bg-secondary/70 shadow-xl hover:shadow-2xl duration-300 group border-2 hover:border-2 border-blue-300/10 hover:border-blue-300/40 hover:bg-secondary/80"
           >
             <div className="flex flex-row">
-              <Link href={`/products-server/${productIdList}`}>
+              <Link href={`/products-test/${productIdList}`}>
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger asChild>
