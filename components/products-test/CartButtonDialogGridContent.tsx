@@ -5,12 +5,12 @@
 import { auth } from "@clerk/nextjs/server";
 import { fetchSingleProduct, findExistingReview } from "@/utils/actionsTest";
 import { formatCurrency } from "@/utils/format";
-import FavoriteToggleButton from "./FavoriteToggleButton";
+import FavoriteToggleButtonDialogGrid from "./FavoriteToggleButtonDialogGrid";
 import ProductRating from "@/components/single-product/ProductRating";
 import CarouselSwiper from "@/components/global/CarouselSwiper";
 import Link from "next/link";
 // lek 675
-import SubmitReview from "@/components/reviews/SubmitReview";
+// import SubmitReview from "@/components/reviews/SubmitReview";
 import ProductAddDialogTest from "./ProductAddDialogTest";
 
 async function CartButtonDialogGridContent({
@@ -18,21 +18,14 @@ async function CartButtonDialogGridContent({
 }: {
   productId: string;
 }) {
-  const product = await fetchSingleProduct(productId);
-  const {
-    name,
-    image,
-    company,
-    description,
-    price,
-    title,
-    category,
-    type,
-    productJson,
-  } = product;
+  const productDialogGrid = await fetchSingleProduct(productId);
+
+  const { name, image, company, price, title, category, type, productJson } =
+    productDialogGrid;
   const dollarsAmount = formatCurrency(price);
-  // const { userId } = auth();
-  const productIdGrid = product.id;
+  const { userId } = auth();
+  const userIdGrid: string | null = userId;
+  // const productIdGrid = productDialogList.id;
   // const reviewDoesNotExist =
   //   userId && !(await findExistingReview(userId, productIdGrid));
 
@@ -47,7 +40,7 @@ async function CartButtonDialogGridContent({
           {productJson ? (
             <CarouselSwiper
               productJson={productJson}
-              productKey={productIdGrid}
+              productKey={productDialogGrid.id}
             />
           ) : (
             <div className="w-100% h-auto ml-[-28px] sm:mx-auto">
@@ -66,18 +59,28 @@ async function CartButtonDialogGridContent({
           {/* PRODUCT INFO SECOND COL */}
           <div>
             <div className="flex gap-x-8 items-center">
-              <Link href={`/products-test/${productIdGrid}`}>
+              <Link href={`/products-test/${productDialogGrid.id}`}>
                 <p className="text-xl md:text-2xl xl:text-3xl font-semibold dark:font-medium mt-3">
                   {name}{" "}
                 </p>
               </Link>
-              <div className="flex items-center gap-x-2">
-                {/* <FavoriteToggleButton productId={productIdGrid} /> */}
-                {/* <ShareButton name={product.name} productId={productId} />
+              {userIdGrid ? (
+                <div className="flex items-center gap-x-2">
+                  <FavoriteToggleButtonDialogGrid
+                    productId={productDialogGrid.id}
+                    userIdList={userIdGrid}
+                  />
+                  {/* <ShareButton name={product.name} productId={productId} />
                 <ShareButtonMobile name={product.name} productId={productId} /> */}
-              </div>
+                </div>
+              ) : (
+                <div className="flex items-center gap-x-2">
+                  {/* <ShareButton name={product.name} productId={productId} />
+                <ShareButtonMobile name={product.name} productId={productId} /> */}
+                </div>
+              )}
             </div>
-            <ProductRating productId={product.id} />
+            <ProductRating productId={productDialogGrid.id} />
             <p className="text-lg md:text-xl xl:text-2xl font-semibold dark:font-medium mt-2">
               {title}
             </p>
@@ -88,7 +91,10 @@ async function CartButtonDialogGridContent({
               {company}
             </p>
 
-            <ProductAddDialogTest id={productIdGrid} product={product} />
+            <ProductAddDialogTest
+              id={productDialogGrid.id}
+              product={productDialogGrid}
+            />
 
             {/* {reviewDoesNotExist && <SubmitReview productId={productIdGrid} />} */}
           </div>

@@ -5,27 +5,37 @@
 import { auth } from "@clerk/nextjs/server";
 import { fetchSingleProduct, findExistingReview } from "@/utils/actionsTest";
 import { formatCurrency } from "@/utils/format";
-import FavoriteToggleButtonDialogList from "./FavoriteToggleButtonDialogList";
+import FavoriteToggleButton from "./FavoriteToggleButton";
 import ProductRating from "@/components/single-product/ProductRating";
 import CarouselSwiper from "@/components/global/CarouselSwiper";
 import Link from "next/link";
-// lek 675  SubmitReviewServerList
-import SubmitReviewTestList from "@/components/reviews/SubmitReviewTestList";
-import SingleProductAddTest from "./SingleProductAddTest";
+// lek 675
+import SubmitReview from "@/components/reviews/SubmitReview";
+import ProductAddDialogTest from "./ProductAddDialogTest";
 
-async function CartButtonDialogListContent({
+async function CartButtonDialogGridContent({
   productId,
 }: {
   productId: string;
 }) {
-  const productDialogList = await fetchSingleProduct(productId);
-  const { name, image, company, price, title, category, type, productJson } =
-    productDialogList;
+  const product = await fetchSingleProduct(productId);
+
+  const {
+    name,
+    image,
+    company,
+    description,
+    price,
+    title,
+    category,
+    type,
+    productJson,
+  } = product;
   const dollarsAmount = formatCurrency(price);
-  const { userId } = auth();
-  const userIdList: string | null = userId;
+  // const { userId } = auth();
+  const productIdGrid = product.id;
   // const reviewDoesNotExist =
-  //   userIdList && !(await findExistingReview(userIdList, productDialogList.id));
+  //   userId && !(await findExistingReview(userId, productIdGrid));
 
   return (
     <div
@@ -38,7 +48,7 @@ async function CartButtonDialogListContent({
           {productJson ? (
             <CarouselSwiper
               productJson={productJson}
-              productKey={productDialogList.id}
+              productKey={productIdGrid}
             />
           ) : (
             <div className="w-100% h-auto ml-[-28px] sm:mx-auto">
@@ -57,23 +67,18 @@ async function CartButtonDialogListContent({
           {/* PRODUCT INFO SECOND COL */}
           <div>
             <div className="flex gap-x-8 items-center">
-              <Link href={`/products-test/${productDialogList.id}`}>
+              <Link href={`/products-test/${productIdGrid}`}>
                 <p className="text-xl md:text-2xl xl:text-3xl font-semibold dark:font-medium mt-3">
                   {name}{" "}
                 </p>
               </Link>
-              {userIdList ? (
-                <div className="flex items-center gap-x-2">
-                  <FavoriteToggleButtonDialogList
-                    productId={productDialogList.id}
-                    userIdList={userIdList}
-                  />
-                </div>
-              ) : (
-                <div className="flex items-center gap-x-2"></div>
-              )}
+              <div className="flex items-center gap-x-2">
+                {/* <FavoriteToggleButton productId={productIdGrid} /> */}
+                {/* <ShareButton name={product.name} productId={productId} />
+                <ShareButtonMobile name={product.name} productId={productId} /> */}
+              </div>
             </div>
-            <ProductRating productId={productDialogList.id} />
+            <ProductRating productId={product.id} />
             <p className="text-lg md:text-xl xl:text-2xl font-semibold dark:font-medium mt-2">
               {title}
             </p>
@@ -84,21 +89,13 @@ async function CartButtonDialogListContent({
               {company}
             </p>
 
-            <SingleProductAddTest
-              id={productDialogList.id}
-              product={productDialogList}
-            />
+            <ProductAddDialogTest id={productIdGrid} product={product} />
 
-            {/* {reviewDoesNotExist && (
-              <SubmitReview productId={productDialogList.id} />
-            )} */}
-            {/* {reviewDoesNotExist && (
-              <SubmitReviewTestList productId={productDialogList.id} />
-            )} */}
+            {/* {reviewDoesNotExist && <SubmitReview productId={productIdGrid} />} */}
           </div>
         </div>
       </div>
     </div>
   );
 }
-export default CartButtonDialogListContent;
+export default CartButtonDialogGridContent;

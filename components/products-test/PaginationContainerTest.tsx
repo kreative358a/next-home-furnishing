@@ -28,7 +28,7 @@ type ConstructUrlParams = {
   pathname: string;
 };
 
-function PaginationContainer({ productsCount }: { productsCount: number }) {
+function PaginationContainerTest({ productsCount }: { productsCount: number }) {
   // const { meta } = useLoaderData() as ProductsResponseWithParams;
   // const { pageCount, page } = meta.pagination;
 
@@ -114,4 +114,4 @@ function PaginationContainer({ productsCount }: { productsCount: number }) {
     </Pagination>
   );
 }
-export default PaginationContainer;
+export default PaginationContainerTest;
