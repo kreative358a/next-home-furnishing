@@ -31,7 +31,7 @@ function NavSearch({ path }: { path: string }) {
   return (
     <Input
       type="search"
-      placeholder="search product..."
+      placeholder="search product... name, category, colors"
       className="py-1 flex max-w-[90%] sm:max-w-lg dark:bg-muted border-2 mx-auto text-base md:text-lg"
       onChange={(e) => {
         setSearch(e.target.value);

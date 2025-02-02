@@ -17,7 +17,7 @@ async function OurProducts() {
   if (profileId) {
     return (
       <Button asChild size="lg" className="mt-10 max-lg:hidden text-lg">
-        <Link href="/products-server">Our Products</Link>
+        <Link href="/products-test">Our Products</Link>
       </Button>
     );
   }

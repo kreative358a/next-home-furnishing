@@ -53,14 +53,14 @@ async function CartContent() {
   return (
     <div
       // className="bg-scroll"
-      className="dialog-content h-[90%] 3xl:h-[100%] max-h-[700px] pl-2 pr-0 sm:p-4"
+      className="dialog-content h-[98%] sm:h-[90%] 3xl:h-[100%] max-h-[740px] pl-2 pr-0 sm:p-4 mx-auto"
     >
       <SectionTitle text="Shopping Cart" />
       <div className="mt-8 flex flex-col lg:grid gap-4 lg:grid-cols-12 ">
-        <div className="grid grid-col lg:col-span-8">
+        <div className="grid grid-col lg:col-span-8 w-[100%] max-w-[100%]">
           <CartItemsList cartItems={cartItems} />
         </div>
-        <div className="grid grid-col lg:col-span-4">
+        <div className="grid grid-col lg:col-span-4 pr-1">
           <CartTotals cart={currentCart} cartItemsJson={cartItemsNew} />
         </div>
       </div>

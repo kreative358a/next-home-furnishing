@@ -49,51 +49,67 @@ async function CartButtonDialog() {
           className="flex justify-center items-center relative mx-2"
         >
           <LuShoppingCart />
-          <span className="absolute -top-3 -right-3 bg-primary  text-white dark:text-blue-950 rounded-full h-6 w-6 flex items-center justify-center text-xs">
+          <span className="absolute -top-3 -right-3 bg-primary text-white dark:text-blue-950 rounded-full h-6 w-6 flex items-center justify-center text-xs">
             {numItemsInCart}
           </span>
         </Button>
       </DialogTrigger>
+      {numItemsInCart === 0 ? (
+        <DialogContent
+          aria-describedby={undefined}
+          // className="dialog-content-main bg-muted/80 hover:bg-muted/90 min-w-[96%] md:min-w-[90%] max-h-[800px]"
+          className="dialog-content-main bg-muted/80 hover:bg-muted/90 max-w-[98%] min-w-[98%] sm:max-w-[96%] sm:min-w-[96%] md:max-w-[90%] md:min-w-[90%] max-h-[98%]  mt-4 text-transparent"
+        >
+          <DialogClose asChild>
+            <Button
+              className="absolute w-20 text-base right-2 top-2 "
+              type="button"
+              variant="secondary"
+            >
+              Close
+            </Button>
+          </DialogClose>
 
-      <DialogContent
-        aria-describedby={undefined}
-        // className="dialog-content-main bg-muted/80 hover:bg-muted/90 min-w-[96%] md:min-w-[90%] max-h-[800px]"
-        className="dialog-content-main bg-muted/80 hover:bg-muted/90 min-w-[96%] md:min-w-[90%] max-h-[98%]  mt-4 text-transparent"
-      >
-        <DialogClose asChild>
-          <Button
-            className="absolute w-20 text-base right-2 top-2 "
-            type="button"
-            variant="secondary"
-          >
-            Close
-          </Button>
-        </DialogClose>
-        {numItemsInCart === 0 ? (
           <DialogHeader>
             <DialogTitle>
               <EmptyList className="text-secondary-foreground" />
             </DialogTitle>
           </DialogHeader>
-        ) : (
-          <>
-            <DialogHeader>
-              <DialogTitle>
-                <Link href={`/cart`}>
-                  <DialogClose asChild>
-                    <Button className="ml-[12px] w-[600px] max-w-[94%] mx-auto mt-8 text-sm lg:text-base 3xl:text-lg">
-                      redirect to cart
-                    </Button>
-                  </DialogClose>
-                </Link>
-              </DialogTitle>
-            </DialogHeader>
-            <div className=" dialog-content-background-cart h-[80%] 3xl:h-[100%] max-h-[760px] bg-muted/20 hover:bg-muted/40 text-secondary-foreground">
-              <CartContent />
-            </div>
-          </>
-        )}
-      </DialogContent>
+        </DialogContent>
+      ) : (
+        <DialogContent
+          aria-describedby={undefined}
+          // className="dialog-content-main bg-muted/80 hover:bg-muted/90 min-w-[96%] md:min-w-[90%] max-h-[800px]"
+          className="dialog-content-main bg-muted/80 hover:bg-muted/90 max-w-[98%] min-w-[98%] sm:max-w-[96%] sm:min-w-[96%] md:max-w-[90%] md:min-w-[90%] max-h-[98%] p-0 sm:p-2 my-4 text-transparent rounded-md mx-auto"
+        >
+          <DialogClose asChild>
+            <Button
+              className="absolute w-20 text-base right-2 top-2 "
+              type="button"
+              variant="secondary"
+            >
+              Close
+            </Button>
+          </DialogClose>
+          <DialogHeader className="mt-8">
+            <DialogTitle>
+              <Link href={`/cart`}>
+                <DialogClose className="" asChild>
+                  <Button className="sm:ml-[12px] min-w-[380px] max-w-[90%] mt-8 text-base lg:text-lg 3xl:text-xl">
+                    redirect to cart
+                  </Button>
+                </DialogClose>
+              </Link>
+            </DialogTitle>
+          </DialogHeader>
+          <div
+            className=" dialog-content-background-cart h-[100%] 2xl:h-[80%] 3xl:h-[100%] max-h-[760px] bg-muted/20 hover:bg-muted/40 text-secondary-foreground max-w-[100%]"
+            // className=" dialog-content-background-cart h-[90%] 2xl:h-[80%] 3xl:h-[100%] max-h-[760px] bg-muted/20 hover:bg-muted/40 text-secondary-foreground max-w-100%"
+          >
+            <CartContent />
+          </div>
+        </DialogContent>
+      )}
     </Dialog>
   );
 }

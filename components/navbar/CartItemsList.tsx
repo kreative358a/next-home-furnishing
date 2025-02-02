@@ -8,7 +8,7 @@ import { CartItemWithProduct } from "@/utils/types";
 // function CartItemsList({ cartItems }: { cartItems: cartItems[] }) {
 function CartItemsList({ cartItems }: { cartItems: CartItemWithProduct[] }) {
   return (
-    <div>
+    <div className="min-w-[100%] max-w-[100%] mx-auto pr-1">
       {cartItems.map((cartItem) => {
         // const { id, amount } = cartItem;
         const { id, amount, color, price } = cartItem;
@@ -28,7 +28,7 @@ function CartItemsList({ cartItems }: { cartItems: CartItemWithProduct[] }) {
         return (
           <Card
             key={id}
-            className="flex flex-row justify-between gap-y-4 flex-wrap p-6 mb-8 gap-x-4"
+            className="flex flex-row justify-between gap-y-4 flex-wrap p-6 mb-8 gap-x-4 mx-auto w-[100%]"
           >
             <FirstColumn image={image} name={name} />
 
