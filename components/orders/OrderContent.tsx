@@ -39,14 +39,24 @@ async function OrderContent({
   return (
     <div
       // className="bg-scroll"
-      className="dialog-content max-h-[700px] mt-[20px]"
+      // className="dialog-content max-h-[700px] mt-[20px]"
+      className="dialog-content h-[98%] sm:h-[90%] 3xl:h-[100%] max-h-[740px] pl-2 pr-0 sm:p-4 mx-auto"
     >
       <SectionTitle text={`Number of Products ${products}`} />
-      <div className="mt-8 flex flex-col lg:grid gap-4 lg:grid-cols-12 min-[440px]:px-2">
-        <div className="grid grid-col lg:col-span-8">
+      <div
+        className="mt-8 flex flex-col lg:grid gap-4 lg:grid-cols-12 "
+        // className="mt-8 flex flex-col lg:grid gap-4 lg:grid-cols-12 min-[440px]:px-2"
+      >
+        <div
+          // className="grid grid-col lg:col-span-8"
+          className="grid grid-col lg:col-span-8 w-[100%] max-w-[100%]"
+        >
           <OrderItemsList order={order} />
         </div>
-        <div className="grid grid-col lg:col-span-4">
+        <div
+          // className="grid grid-col lg:col-span-4"
+          className="grid grid-col lg:col-span-4 pr-1"
+        >
           <CartTotals order={order} />
         </div>
       </div>

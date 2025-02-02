@@ -5,7 +5,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 function loading() {
   return (
-    <div className="productsContent px-0.5 sm:px-2 pt-4 pb-4 lg:mt-2">
+    <div className="productsContent px-0.5 sm:px-2 pt-[120px] sm:pt-[94px] pb-4 lg:mt-2">
       <section className="grid gap-8 mt-4">
         <ReviewLoadingSingleProduct />
       </section>

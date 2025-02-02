@@ -39,7 +39,7 @@ async function SingleProductPage({
   console.log("reviewDoesNotExist: ", reviewDoesNotExist);
 
   return (
-    <div className="productsContent px-0.5 sm:px-2 pt-4 pb-4 lg:mt-2">
+    <div className="productsContent px-0.5 sm:px-2 pt-[120px] sm:pt-[94px] pb-4 lg:mt-2">
       <div className="w-full min-w-[90%] bg-muted/60 p-6 backdrop-blur-xl rounded-md">
         {userId ? <BreadCrumbs name={product.name} /> : null}
 

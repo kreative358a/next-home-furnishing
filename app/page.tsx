@@ -11,7 +11,7 @@ function HomePage() {
   return (
     <>
       <CarouselBackground />
-      <div className="productsContent sm:px-2 pt-4 pb-4 lg:mt-2">
+      <div className="productsContent pt-[120px] sm:pt-[94px] sm:px-2 pb-4 lg:mt-2">
         <Hero />
         <Suspense fallback={<LoadingContainer />}>
           <FeaturedProducts />

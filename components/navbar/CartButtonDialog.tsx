@@ -86,7 +86,7 @@ async function CartButtonDialog() {
             <Button
               className="absolute w-20 text-base right-2 top-2 "
               type="button"
-              variant="secondary"
+              // variant="secondary"
             >
               Close
             </Button>

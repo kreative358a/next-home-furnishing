@@ -17,7 +17,7 @@ async function OrdersPage() {
   const orders = await fetchUserOrders();
 
   return (
-    <div className="productsContent px-0.5 sm:px-2  pt-4 pb-4 lg:mt-2">
+    <div className="productsContent px-0.5 sm:px-2 pt-[120px] sm:pt-[94px] pb-4 lg:mt-2">
       <SectionTitle text="Your Orders" />
       <Table className="border-2 border-card-foreground/60 p-2 rounded-md">
         <TableCaption className="text-base lg:text-lg">

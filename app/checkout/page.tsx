@@ -55,7 +55,7 @@ function CheckoutPage() {
   const options = { fetchClientSecret };
 
   return (
-    <div className="productsContent px-0.5 sm:px-2 pt-4 pb-4 lg:mt-2">
+    <div className="productsContent px-0.5 sm:px-2 pt-[120px] sm:pt-[94px] pb-4 lg:mt-2">
       <div id="checkout" className="min-w-[400px] max-w-[1280px] mx-auto">
         <div className="px-2 grid gri-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-4 justify-between mb-4 border-2">
           <p>example card visa</p>

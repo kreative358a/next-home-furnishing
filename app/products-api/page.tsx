@@ -102,7 +102,7 @@ function ProductsHFPage() {
   return (
     <div>
       <CarouselBackground />
-      <div className="productsContent px-0.5 sm:px-2 pt-4 pb-4 lg:mt-2">
+      <div className="productsContent px-0.5 sm:px-2 pt-[120px] sm:pt-[94px] pb-4 lg:mt-2">
         <div className="text-base md:text-lg bg-muted/80 w-[100%] max-w-[800px]  mx-auto rounded-md px-8 py-4 grid gap-x-4 gap-y-8 sm:grid-cols-2 items-center ">
           <p className="stats text-lg lg:text-xl bg-neutral/90 shadow p-2 text-center rounded-md">
             {" "}

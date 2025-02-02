@@ -27,7 +27,8 @@ function CartItemsList({ order }: { order: { [x: string]: any } }) {
         return (
           <Card
             key={productId}
-            className="flex flex-row justify-between gap-y-4 flex-wrap p-6 mb-8 gap-x-4"
+            // className="flex flex-row justify-between gap-y-4 flex-wrap p-6 mb-8 gap-x-4"
+            className="flex flex-row justify-between gap-y-4 flex-wrap p-6 mb-8 gap-x-4 mx-auto w-[100%]"
           >
             <FirstColumn image={image} name={name} />
 

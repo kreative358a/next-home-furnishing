@@ -49,7 +49,7 @@ async function CartPage() {
   return (
     <>
       <CarouselBackground />
-      <div className="productsContent px-0.5 sm:px-2 lg:p-4 pt-20 lg:pt-24 pb-4 lg:mt-2 ">
+      <div className="productsContent px-0.5 sm:px-2 lg:p-4 pt-[120px] sm:pt-[94px] pb-4 lg:mt-2 ">
         {numItemsInCart === 0 ? (
           <SectionTitle text="Empty Cart" />
         ) : (
