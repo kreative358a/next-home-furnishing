@@ -25,7 +25,7 @@ async function EditProductPage({ params }: { params: { id: string } }) {
     prices,
   } = product;
   return (
-    <div className="">
+    <div className="productsContent px-0.5 sm:px-2 lg:p-4 pt-[120px] sm:pt-[94px] pb-4 lg:mt-2 ">
       <h1 className="text-2xl font-semibold mb-8 capitalize">update product</h1>
       <div className="border p-8 rounded">
         <ImageInputContainer

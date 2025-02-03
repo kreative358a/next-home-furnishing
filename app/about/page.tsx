@@ -9,7 +9,7 @@ function About() {
   return (
     <div>
       <CarouselBackground />
-      <div className="productsContent px-0.5 sm:px-2 pt-4 pb-4 lg:mt-2">
+      <div className="productsContent px-0.5 sm:px-2 lg:p-4 pt-[120px] sm:pt-[94px] pb-4 lg:mt-2 ">
         <div className="flex flex-wrap gap-2 sm:gap-x-6 items-center justify-center">
           <div className="stats bg-primary/80 shadow p-2 text-center rounded-md">
             <p
