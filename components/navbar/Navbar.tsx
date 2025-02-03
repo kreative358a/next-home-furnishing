@@ -14,7 +14,7 @@ import "react-toastify/dist/ReactToastify.css";
 // import { getAuthUserEmail } from "@/utils/actionsServer";
 import UserEmail from "./UserEmail";
 
-function Navbar({ isUser }: { isUser: string }) {
+function Navbar() {
   // const userEmail = getAuthUserEmail() as unknown as string;
   // console.log("userEmail: ", userEmail);
   // const cookieStore = cookies();
@@ -33,7 +33,7 @@ function Navbar({ isUser }: { isUser: string }) {
         transition={Bounce}
         position="bottom-center"
         theme="colored"
-        className="absolute z-60"
+        className="absolute z-60 top-2"
       />
       <Container className="grid grid-col sm:flex sm:flex-row sm:justify-items-end sm:items-center py-4 gap-4">
         <div className="flex flex-row gap-4">
@@ -46,7 +46,7 @@ function Navbar({ isUser }: { isUser: string }) {
         <div className=" md:absolute flex gap-4 items-center right-10">
           {/* <CartButtonClient /> */}
 
-          <CartButton isUser={isUser} />
+          <CartButton />
           <CartButtonDialog />
 
           <DarkMode />

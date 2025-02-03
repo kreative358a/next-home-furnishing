@@ -52,7 +52,7 @@ export default function RootLayout({
   //   }
   //   return "true";
   // }
-  const isUser = "true";
+  // const isUser = "true";
   return (
     <ClerkProvider
       appearance={{
@@ -81,7 +81,7 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} ${inter.className} antialiased bg-muted/80 w-[100vw] h-[100vh] m-0`}
         >
           <ProvidersServer>
-            <Navbar isUser={isUser} />
+            <Navbar />
             <Container className="py-2">{children}</Container>
           </ProvidersServer>
         </body>

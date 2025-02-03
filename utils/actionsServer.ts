@@ -949,12 +949,12 @@ export const fetchCartItems = async () => {
       numItemsInCart: true,
     },
   });
-  if (typeof window !== "undefined") {
-    const numItemsInCart = cart?.numItemsInCart || 0;
-    // const numItemsInCart = currentCart.numItemsInCart;
-    // const numItemsInCart = await fetchCartItems();
-    // localStorage.setItem("numItemsInCart", numItemsInCart.toString());
-  }
+  // if (typeof window !== "undefined") {
+  //   const numItemsInCart = cart?.numItemsInCart || 0;
+  //   // const numItemsInCart = currentCart.numItemsInCart;
+  //   // const numItemsInCart = await fetchCartItems();
+  //   // localStorage.setItem("numItemsInCart", numItemsInCart.toString());
+  // }
   return cart?.numItemsInCart || 0;
 };
 

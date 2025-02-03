@@ -4,16 +4,26 @@ import { NextResponse } from "next/server";
 // const isPublicRoute = createRouteMatcher(["/", "/products(.*)", "/about"]);
 const isPublicRoute = createRouteMatcher([
   "/",
-  // "/products(.*)",
   "/products-api(.*)",
-  // "/products-server(.*)",
   "/products-test(.*)",
   "/about",
 ]);
 const isAdminRoute = createRouteMatcher(["/admin(.*)"]);
 // user_2qX2pW86GdzkoSoprNXyPhxmvlu
 
-export default clerkMiddleware((auth, req) => {
+// export default clerkMiddleware((auth, req) => {
+//   // console.log('auth().userId: ', auth().userId);
+
+//   const isAdminUser = auth().userId === process.env.ADMIN_USER_ID;
+
+//   if (isAdminRoute(req) && !isAdminUser) {
+//     return NextResponse.redirect(new URL("/", req.url));
+//   }
+
+//   if (!isPublicRoute(req)) auth().protect();
+// });
+
+export default clerkMiddleware(async (auth, req) => {
   // console.log('auth().userId: ', auth().userId);
 
   const isAdminUser = auth().userId === process.env.ADMIN_USER_ID;
@@ -22,7 +32,7 @@ export default clerkMiddleware((auth, req) => {
     return NextResponse.redirect(new URL("/", req.url));
   }
 
-  if (!isPublicRoute(req)) auth().protect();
+  if (!isPublicRoute(req)) await auth().protect();
 });
 
 export const config = {
