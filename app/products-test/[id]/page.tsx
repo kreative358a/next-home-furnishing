@@ -26,9 +26,8 @@ async function SingleProductPageTest({ params }: { params: { id: string } }) {
   const { name, image, company, description, price, productJson } = product;
   const dollarsAmount = formatCurrency(price);
   const { userId } = auth();
-  // if (!userId) {
-  //   redirect("/");
-  // }
+  if (!userId) redirect("/");
+
   // const user = await getAuthUser();
   const reviewDoesNotExist =
     userId && !(await findExistingReview(userId, product.id));
