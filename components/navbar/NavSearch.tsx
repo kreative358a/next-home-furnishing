@@ -28,7 +28,8 @@ function NavSearch() {
   return (
     <Input
       type="search"
-      placeholder="search product..."
+      style={{ boxShadow: "0px, 0px, 0px, 2px rgba(120, 160, 220, 0.6)" }}
+      placeholder="search product... name, category, colors"
       className="max-w-xs dark:bg-muted "
       onChange={(e) => {
         setSearch(e.target.value);

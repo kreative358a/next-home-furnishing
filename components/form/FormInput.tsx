@@ -1,5 +1,5 @@
-import { Label } from '../ui/label';
-import { Input } from '../ui/input';
+import { Label } from "../ui/label";
+import { Input } from "../ui/input";
 
 type FormInputProps = {
   name: string;
@@ -17,8 +17,8 @@ function FormInput({
   placeholder,
 }: FormInputProps) {
   return (
-    <div className='mb-2'>
-      <Label htmlFor={name} className='capitalize'>
+    <div className="bg-foreground/20 p-2 border-2 border-foreground/20 rounded-md text-sm lg:text-base 3xl:text-lg">
+      <Label htmlFor={name} className="capitalize">
         {label || name}
       </Label>
       <Input
@@ -28,6 +28,7 @@ function FormInput({
         defaultValue={defaultValue}
         placeholder={placeholder}
         required
+        style={{ boxShadow: "0px 0px 0px 2px rgba(120, 160, 220, 0.6)" }}
       />
     </div>
   );

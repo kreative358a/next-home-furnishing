@@ -52,7 +52,7 @@ export const SecondColumn = ({
 }) => {
   return (
     <div className="w-40 sm:w-48">
-      <Link href={`/products-server/${productId}`}>
+      <Link href={`/products-test/${productId}`}>
         <h3 className="text-base lg:text-lg 2xl:text-xl font-semibold dark:font-medium hover:underline">
           {name}
         </h3>

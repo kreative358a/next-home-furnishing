@@ -31,6 +31,7 @@ function NavSearch({ path }: { path: string }) {
   return (
     <Input
       type="search"
+      style={{ boxShadow: "0px, 0px, 0px, 2px rgba(120, 160, 220, 0.6)" }}
       placeholder="search product... name, category, colors"
       className="py-1 flex max-w-[90%] sm:max-w-lg dark:bg-muted border-2 mx-auto text-base md:text-lg"
       onChange={(e) => {

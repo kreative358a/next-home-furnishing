@@ -23,9 +23,17 @@ async function EditProductPage({ params }: { params: { id: string } }) {
     images,
     colors,
     prices,
+    color,
+    category,
+    originId,
+    type,
+    title,
+    productJson,
   } = product;
   return (
-    <div className="productsContent px-0.5 sm:px-2 lg:px-4 pt-[120px] sm:pt-[94px] pb-4 lg:mt-2 ">
+    <div
+    // className="productsContent px-0.5 sm:px-2 lg:px-4 pt-[120px] sm:pt-[94px] pb-4 lg:mt-2 "
+    >
       <h1 className="text-2xl font-semibold mb-8 capitalize">update product</h1>
       <div className="border p-8 rounded">
         <ImageInputContainer
@@ -46,8 +54,39 @@ async function EditProductPage({ params }: { params: { id: string } }) {
               label="product name"
               defaultValue={name}
             />
+            <FormInput
+              type="text"
+              name="type"
+              label="type"
+              defaultValue={type}
+            />
+            <FormInput
+              type="text"
+              name="title"
+              label="title"
+              defaultValue={title}
+            />
             <FormInput type="text" name="company" defaultValue={company} />
             <PriceInput defaultValue={price} />
+            <FormInput
+              type="text"
+              name="color"
+              label="color"
+              defaultValue={color}
+            />
+            <FormInput
+              type="text"
+              name="category"
+              label="category"
+              defaultValue={category}
+            />
+            <FormInput
+              type="text"
+              name="originId"
+              label="originId"
+              defaultValue={originId}
+            />
+
             <FormInput
               type="text"
               name="images"
@@ -71,6 +110,11 @@ async function EditProductPage({ params }: { params: { id: string } }) {
             name="description"
             labelText="product description"
             defaultValue={description}
+          />
+          <TextAreaInput
+            name="productJson"
+            labelText="productJson"
+            defaultValue={productJson || "undefined"}
           />
           <div className="mt-6">
             <CheckboxInput
