@@ -1,23 +1,18 @@
 "use client";
-import { 
-  Form, 
-  useLoaderData, 
-  Link 
-} from "react-router-dom";
+import { Form, useLoaderData, Link } from "react-router-dom";
 import FormInputMy from "./FormInputMy";
 import FormSelectMy from "./FormSelectMy";
 import { ProductsResponseWithParamsHF } from "@/utils";
 import { useLocation } from "react-router-dom";
 
-
 import { SetStateAction, useState, useEffect } from "react";
 
-const FiltersHF = ({ 
-  totalItems, 
-  // categoryValue 
-}: { 
-  totalItems: number; 
-  // categoryValue: string 
+const FiltersHF = ({
+  totalItems,
+}: // categoryValue
+{
+  totalItems: number;
+  // categoryValue: string
 }) => {
   const categories = ["best-sellers"];
   const [selectedValue, setSelectedValue] = useState("");
@@ -69,11 +64,11 @@ const FiltersHF = ({
   return (
     <>
       <div className="text-base md:text-lg bg-muted/80 w-[100%] max-w-[800px]  mx-auto rounded-md px-8 py-4 grid gap-x-4 gap-y-8 sm:grid-cols-2 items-center ">
-        <p className="stats text-xl md:text-2xl xl:text-3xl bg-neutral/90 shadow p-2 text-center rounded-md">
+        <p className="stats text-accent-foreground text-xl md:text-2xl xl:text-3xl bg-muted/60 shadow p-2 text-center rounded-md">
           {" "}
           {`category: ${inputValue || "best-sellers"}`}{" "}
         </p>
-        <p className="stats text-xl md:text-2xl xl:text-3xl bg-neutral/90 shadow p-2 text-center rounded-md">{`${totalItems} product${
+        <p className="stats text-accent-foreground text-xl md:text-2xl xl:text-3xl bg-muted/60 shadow p-2 text-center rounded-md">{`${totalItems} product${
           totalItems > 1 && "s"
         }`}</p>
       </div>
@@ -91,30 +86,30 @@ const FiltersHF = ({
         {/* <Form 
         // onSubmit={handleSubmit}
         > */}
-          {/* SEARCH */}
-          <FormInputMy
-            type="text"
-            label="search products"
-            // name='search'
-            name="keyword"
-            size="input-sm"
-            value={inputValue}
-            onChange={(event) => setInputValue(event.target.value)}
-          />
+        {/* SEARCH */}
+        <FormInputMy
+          type="text"
+          label="search products"
+          // name='search'
+          name="keyword"
+          size="input-sm"
+          value={inputValue}
+          onChange={(event) => setInputValue(event.target.value)}
+        />
 
-          <div className="bg-muted w-[100%] mx-auto rounded-md px-8 py-4 grid gap-x-4 gap-y-8 sm:grid-cols-2">
-            <button
-              // type="submit"
-              className="btn btn-primary btn-sm text-base"
+        <div className="bg-muted w-[100%] mx-auto rounded-md px-8 py-4 grid gap-x-4 gap-y-8 sm:grid-cols-2">
+          <button
+            // type="submit"
+            className="btn btn-primary btn-sm text-base"
 
-              // onClick={category.clear()}
-            >
-              search
-            </button>
-            <Link to="/products" className="btn btn-accent btn-sm text-base">
-              reset
-            </Link>
-          </div>
+            // onClick={category.clear()}
+          >
+            search
+          </button>
+          <Link to="/products" className="btn btn-accent btn-sm text-base">
+            reset
+          </Link>
+        </div>
         {/* </Form> */}
       </div>
     </>

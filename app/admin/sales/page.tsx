@@ -15,7 +15,7 @@ async function SalesPage() {
   const orders = await fetchAdminOrders();
 
   return (
-    <div className="productsContent px-0.5 sm:px-2 lg:p-4 pt-[120px] sm:pt-[94px] pb-4 lg:mt-2 ">
+    <div className="productsContent px-0.5 sm:px-2 lg:px-4 pt-[120px] sm:pt-[94px] pb-4 lg:mt-2 ">
       <Table>
         <TableCaption>Total Orders : {orders.length}</TableCaption>
         <TableHeader>

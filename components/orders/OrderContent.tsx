@@ -40,7 +40,7 @@ async function OrderContent({
     <div
       // className="bg-scroll"
       // className="dialog-content max-h-[700px] mt-[20px]"
-      className="dialog-content h-[98%] sm:h-[90%] 3xl:h-[100%] max-h-[740px] pl-2 pr-0 sm:p-4 mx-auto"
+      className="dialog-content h-[98%] sm:h-[94%] 3xl:h-[100%] max-h-[740px] pl-2 pr-0 sm:p-4 mx-auto"
     >
       <SectionTitle text={`Number of Products ${products}`} />
       <div

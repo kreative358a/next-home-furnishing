@@ -519,15 +519,15 @@ const ProductsListHF = ({ products }: { products: ProductHF[] }) => {
   return (
     <div className="pb-6">
       <div className="text-base md:text-lg bg-muted/80 rounded-md px-8 py-4 grid gap-x-4 gap-y-8 sm:grid-cols-2 md:grid-cols-3 items-center">
-        <p className="stats text-lg lg:text-xl bg-neutral/90 shadow p-2 text-center rounded-md">
+        <p className="stats text-accent-foreground text-lg lg:text-xl bg-muted/60 shadow p-2 text-center rounded-md">
           {" "}
           {`selected subcategory: ${selectCategory || "all"}`}
         </p>
-        <p className="stats text-lg lg:text-xl bg-neutral/90 shadow p-2 text-center rounded-md">
+        <p className="stats text-accent-foreground text-lg lg:text-xl bg-muted/60 shadow p-2 text-center rounded-md">
           {" "}
           {`all product${datas.length > 1 && "s"} ${datas.length}`}
         </p>
-        <p className="stats text-lg lg:text-xl bg-neutral/90 shadow p-2 text-center rounded-md">
+        <p className="stats text-accent-foreground text-lg lg:text-xl bg-muted/60 shadow p-2 text-center rounded-md">
           {" "}
           {`selected product${selectedLength > 1 && "s"}  ${selectedLength} `}
         </p>

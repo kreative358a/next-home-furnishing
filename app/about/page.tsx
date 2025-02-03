@@ -7,11 +7,11 @@ const text = "HOME-FURNISHINGS";
 
 function About() {
   return (
-    <div>
+    <>
       <CarouselBackground />
-      <div className="productsContent px-0.5 sm:px-2 lg:p-4 pt-[120px] sm:pt-[94px] pb-4 lg:mt-2 ">
+      <div className="productsContent px-0.5 sm:px-2 lg:px-4 pt-[120px] sm:pt-[94px] pb-4 lg:mt-2 ">
         <div className="flex flex-wrap gap-2 sm:gap-x-6 items-center justify-center">
-          <div className="stats bg-primary/80 shadow p-2 text-center rounded-md">
+          <div className="stats text-accent-foreground bg-primary/80 shadow p-2 text-center rounded-md">
             <p
               style={{ overflowY: "hidden" }}
               className=" text-3xl sm:text-4xl lg:text-6xl font-bold tracking-widest p-2"
@@ -19,7 +19,7 @@ function About() {
               WE LOVE
             </p>
           </div>
-          <div className="stats bg-primary/80 shadow p-2 text-center rounded-md">
+          <div className="stats text-accent-foreground bg-primary/80 shadow p-2 text-center rounded-md">
             <p
               style={{ overflowY: "hidden" }}
               translate="no"
@@ -90,7 +90,7 @@ function About() {
           </p>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 export default About;
