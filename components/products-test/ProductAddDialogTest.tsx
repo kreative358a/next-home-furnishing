@@ -124,7 +124,7 @@ function ProductAddDialogTest({
                     backgroundColor: color || "transparent",
                     outline: "2px solid rgba(120, 120, 160, 0.4)",
                   }}
-                  className={`badge rounded-[50%] p-1 w-4 h-4 md:w-6 md:h-6 3xl:w-8 3xl:h-8 mr-2 lg:mr-4 box-shadow-around-sm ${
+                  className={`badge rounded-[50%] p-1 w-5 h-5 sm:w-6 sm:h-6 xl:h-7 xl:w-7 3xl:w-8 3xl:h-8 mr-2 lg:mr-4 box-shadow-around-sm ${
                     color === color && "border-2 border-secondary"
                   }`}
                   value={color}
@@ -133,7 +133,7 @@ function ProductAddDialogTest({
                   // value={color}
                   // onClick={() => setProductColor(color || "DarkOrchid")}
                 ></button>
-                <span className="mb-2 mr-4 text-base lg:text-lg 2xl:text-xl">
+                <span className="mb-2 mr-4 text-base xl:text-lg 2xl:text-xl">
                   {color}
                 </span>
               </span>
