@@ -14,6 +14,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import ProductRatingDiv from "@/components/single-product/ProductRatingDiv";
 
 function ProductsGrid({ products }: { products: Product[] }) {
   return (
@@ -52,8 +53,9 @@ function ProductsGrid({ products }: { products: Product[] }) {
                 </Tooltip>
               </TooltipProvider>
             </Link>
-            <div className="px-1 my-4 md:px-2 items-center text-center">
+            <div className="px-1 mt-1 mb-4 md:px-2 items-center text-center">
               <div className="w-full justify-center items-center flex flex-col gap-2 my-4">
+                <ProductRatingDiv productId={productGrid.id} />
                 <AddToCartTest
                   productId={productIdGrid}
                   color={color}

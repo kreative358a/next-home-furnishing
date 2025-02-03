@@ -21,21 +21,29 @@ function LinksDropdown() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" className="flex gap-4 max-w-[100px]">
+      <DropdownMenuTrigger className="bg-muted/80" asChild>
+        <Button
+          variant="outline"
+          className="flex gap-4 max-w-[100px] hover:bg-muted/80"
+        >
           <LuAlignLeft className="w-6 h-6" />
           <UserIcon />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-40" align="start" sideOffset={10}>
+
+      <DropdownMenuContent
+        className="w-40 mr-4 text-base 2xl:text:lg bg-muted/80"
+        align="start"
+        sideOffset={10}
+      >
         <SignedOut>
-          <DropdownMenuItem>
+          <DropdownMenuItem className="capitalize w-full border-2 border-foreground/20 hover:border-foreground/40 m-0.5 rounded-sm hover:bg-muted/80">
             <SignInButton mode="modal">
               <button className="w-full text-left">Login</button>
             </SignInButton>
           </DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>
+          <DropdownMenuItem className="capitalize w-full border-2 border-foreground/20 hover:border-foreground/40 m-0.5 rounded-sm hover:bg-muted/80">
             <SignUpButton mode="modal">
               <button className="w-full text-left">Register</button>
             </SignUpButton>
@@ -45,15 +53,16 @@ function LinksDropdown() {
           {links.map((link) => {
             if (link.label === "dashboard" && !isAdmin) return null;
             return (
-              <DropdownMenuItem key={link.href}>
-                <Link href={link.href} className="capitalize w-full">
-                  {link.label}
-                </Link>
+              <DropdownMenuItem
+                key={link.href}
+                className="capitalize w-full border border-foreground/20 hover:border-foreground/40 my-0.5 rounded-sm hover:bg-muted/80"
+              >
+                <Link href={link.href}>{link.label}</Link>
               </DropdownMenuItem>
             );
           })}
           <DropdownMenuSeparator />
-          <DropdownMenuItem>
+          <DropdownMenuItem className="capitalize w-full border-2 border-foreground/20 hover:border-foreground/40 m-0.5 rounded-sm hover:bg-muted/80">
             <SignOutLink />
           </DropdownMenuItem>
         </SignedIn>

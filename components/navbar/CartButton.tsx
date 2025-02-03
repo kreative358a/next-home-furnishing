@@ -47,7 +47,7 @@ async function CartButton() {
         asChild
         variant="outline"
         size="icon"
-        className="flex justify-center items-center relative"
+        className="flex justify-center items-center relative bg-muted/80"
       >
         <Link href="/cart">
           <LuShoppingCart />

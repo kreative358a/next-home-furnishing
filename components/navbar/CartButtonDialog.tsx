@@ -46,7 +46,7 @@ async function CartButtonDialog() {
         <Button
           variant="outline"
           size="icon"
-          className="flex justify-center items-center relative mx-2"
+          className="flex justify-center items-center relative mx-2 bg-muted/80"
         >
           <LuShoppingCart />
           <span className="absolute -top-3 -right-3 bg-primary text-white dark:text-blue-950 rounded-full h-6 w-6 flex items-center justify-center text-xs">

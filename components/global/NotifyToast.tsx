@@ -62,6 +62,32 @@ export function NotifyButton() {
   );
 }
 
+export function LinkToaster() {
+  const notify = () => {
+    toast.error("you have to be log in to continue");
+  };
+
+  return (
+    <>
+      <Button onClick={notify} size="lg" className="mt-10 text-lg">
+        Our Products
+      </Button>
+    </>
+  );
+}
+
+export function NotifyLogIn() {
+  const notify = () => {
+    toast.error("you have to be log in to continue");
+  };
+  return (
+    <>
+      <Button onClick={notify} size="lg" className="mt-10 text-lg">
+        Our Products
+      </Button>
+    </>
+  );
+}
 // export function ToastContainer() {
 
 //   return (

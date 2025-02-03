@@ -11,18 +11,24 @@ import ShareButtonMobile from "@/components/single-product/ShareButtonMobile";
 import { auth } from "@clerk/nextjs/server";
 // lek 675
 import SubmitReview from "@/components/reviews/SubmitReview";
-// import ProductReviews from "@/components/reviews/ProductReviews";
+import ProductReviews from "@/components/reviews/ProductReviews";
 // import { Button, Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 // import SingleProductButtonDialogContentTest from "@/components/products-server/SingleProductDialogButtonContentTest";
 import SingleProductAddTest from "@/components/products-test/SingleProductAddTest";
 import CarouselSwiper from "@/components/global/CarouselSwiper";
+import { redirect } from "next/navigation";
+
+import { Bounce, toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 async function SingleProductPageTest({ params }: { params: { id: string } }) {
   const product = await fetchSingleProduct(params.id);
   const { name, image, company, description, price, productJson } = product;
   const dollarsAmount = formatCurrency(price);
   const { userId } = auth();
-
+  if (!userId) {
+    redirect("/");
+  }
   // const user = await getAuthUser();
   const reviewDoesNotExist =
     userId && !(await findExistingReview(userId, product.id));
@@ -79,6 +85,7 @@ async function SingleProductPageTest({ params }: { params: { id: string } }) {
             <SingleProductAddTest id={product.id} product={product} />
             {reviewDoesNotExist && <SubmitReview productId={params.id} />}
           </div>
+          <ProductReviews productId={params.id} />
         </div>
       </div>
     </div>
