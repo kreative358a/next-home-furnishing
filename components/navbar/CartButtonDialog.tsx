@@ -3,7 +3,7 @@ import {
   Dialog,
   DialogContent,
   // DialogDescription,
-  // DialogFooter,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -106,6 +106,7 @@ async function CartButtonDialog() {
             className=" dialog-content-background-cart h-[100%] 2xl:h-[80%] 3xl:h-[100%] max-h-[760px] bg-muted/20 hover:bg-muted/40 text-secondary-foreground max-w-[100%]"
             // className=" dialog-content-background-cart h-[90%] 2xl:h-[80%] 3xl:h-[100%] max-h-[760px] bg-muted/20 hover:bg-muted/40 text-secondary-foreground max-w-100%"
           >
+            <DialogFooter className="min-w-4"></DialogFooter>
             <CartContent />
           </div>
         </DialogContent>
