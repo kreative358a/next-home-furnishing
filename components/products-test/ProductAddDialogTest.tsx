@@ -110,22 +110,26 @@ function ProductAddDialogTest({
           {colors.split(",").map((color, index) => {
             // console.log("cartProduct: ", cartProduct);
             return (
-              <span key={`${color}-${index}`}>
+              <span
+                key={`${color}-${index}`}
+                onClick={() => {
+                  setProductColor(color);
+                  setProductPrice(JSON.parse(prices)[color]);
+                }}
+                className="cursor-pointer border-2 rounded-md border-muted mr-2 hover:bg-muted-foreground/40"
+              >
                 <button
                   type="button"
                   style={{
                     backgroundColor: color || "transparent",
                     outline: "2px solid rgba(120, 120, 160, 0.4)",
                   }}
-                  className={`badge p-1 w-4 h-4 lg:w-6 lg:h-6 3xl:w-8 3xl:h-8 mr-2 lg:mr-4 box-shadow-around-sm ${
+                  className={`badge rounded-[50%] p-1 w-4 h-4 md:w-6 md:h-6 3xl:w-8 3xl:h-8 mr-2 lg:mr-4 box-shadow-around-sm ${
                     color === color && "border-2 border-secondary"
                   }`}
                   value={color}
                   // onClick={handleColorClick}
-                  onClick={() => {
-                    setProductColor(color);
-                    setProductPrice(JSON.parse(prices)[color]);
-                  }}
+
                   // value={color}
                   // onClick={() => setProductColor(color || "DarkOrchid")}
                 ></button>

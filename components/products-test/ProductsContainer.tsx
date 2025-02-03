@@ -123,7 +123,7 @@ async function ProductsContainer({
     <>
       {/* HEADER */}
       <section>
-        <div className="flex flex-col md:flex-row justify-between items-center mb-2">
+        <div className="flex flex-col width-[360px] sm:w-auto max-[640px]:mx-auto sm:flex-row justify-between items-center mb-2">
           <SectionTitleSmall
             text={
               productsAll > 1

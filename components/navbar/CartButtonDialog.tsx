@@ -103,11 +103,15 @@ async function CartButtonDialog() {
             </DialogTitle>
           </DialogHeader>
           <div
-            className=" dialog-content-background-cart h-[100%] 2xl:h-[80%] 3xl:h-[100%] max-h-[760px] bg-muted/20 hover:bg-muted/40 text-secondary-foreground max-w-[100%]"
+            className=" dialog-content-background-cart max-h-[680px] md:h-[90%] md:max-h-[720px] min-[940px]:max-h-[760px] lg:max-h-[740px] 2xl:h-[90%] 3xl:h-[100%] 3xl:max-h-[760px] bg-muted/20 hover:bg-muted/40 text-secondary-foreground max-w-[100%]"
             // className=" dialog-content-background-cart h-[90%] 2xl:h-[80%] 3xl:h-[100%] max-h-[760px] bg-muted/20 hover:bg-muted/40 text-secondary-foreground max-w-100%"
           >
-            <DialogFooter className="min-w-4"></DialogFooter>
             <CartContent />
+            <DialogFooter className="min-h-4 items-center text-foreground text-center justify-center">
+              <p className="text-center text-primary/40 text-base lg:text-lg mx-auto my-1">
+                end of cart
+              </p>
+            </DialogFooter>
           </div>
         </DialogContent>
       )}

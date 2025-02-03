@@ -88,6 +88,68 @@ function About() {
               homes.
             </strong>
           </p>
+          <p className="hidden mt-4 leading-6 max-w-2xl mx-auto rounded-md px-4 py-2 bg-muted/60 hover:bg-muted/80">
+            <p className="text-base text-foreground">
+              These factors combined make: text-foreground
+            </p>
+            <p className="text-base text-card-foreground">
+              These factors combined make: text-card-foreground
+            </p>
+            <p className="text-base text-muted-foreground">
+              These factors combined make: text-muted-foreground
+            </p>
+            <p className="text-base text-muted">
+              These factors combined make: text-muted
+            </p>
+            <p className="text-base text-accent">
+              These factors combined make: text-accent
+            </p>
+            <p className="text-base text-accent-foreground">
+              These factors combined make: text-accent-foreground
+            </p>
+            <p className="text-base text-primary">
+              These factors combined make: text-primary
+            </p>
+            <p className="text-base text-accent-foreground">
+              These factors combined make: text-accent-foreground
+            </p>
+            <p className="text-base text-primary-foreground">
+              These factors combined make: text-primary-foreground
+            </p>
+            <p className="text-base text-primary-content">
+              These factors combined make: text-primary-content
+            </p>
+            <p className="text-base text-info">
+              These factors combined make: text-info
+            </p>
+            <p className="text-base text-info-content">
+              These factors combined make: text-info-content
+            </p>
+            <p className="text-base text-destructive">
+              These factors combined make: text-destructive
+            </p>
+            <p className="text-base text-destructive-foreground">
+              These factors combined make: text-destructive-foreground
+            </p>
+            <p className="text-base text-secondary-foreground">
+              These factors combined make: text-secondary-foreground
+            </p>
+            <p className="text-base text-primary">
+              These factors combined make: text-primary
+            </p>
+            <p className="text-base text-ring">
+              These factors combined make: text-ring
+            </p>
+            <p className="text-base text-warning-content">
+              These factors combined make: text-warning-content
+            </p>
+            <p className="text-base text-warning">
+              These factors combined make:text-warning
+            </p>
+            <p className="text-base text-orange-500 dark:text-green-500">
+              These factors combined make:text-warning
+            </p>
+          </p>
         </div>
       </div>
     </>

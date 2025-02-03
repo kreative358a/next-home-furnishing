@@ -38,7 +38,7 @@ export default function CarouselSwiper({
   }, []);
 
   return (
-    <div className="w-100% h-auto ml-[-28px] sm:mx-auto mb-2">
+    <div className="w-100% h-[100%] ml-[-28px] sm:mx-auto mb-2">
       <SwiperProduct
         spaceBetween={30}
         centeredSlides={true}

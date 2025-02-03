@@ -36,26 +36,27 @@ async function CartButtonDialogGridContent({
     >
       <div className="w-full min-w-[90%] p-2 md:p-6 md:pt-2 backdrop-blur-xl rounded-md">
         <div className="w-[100%] max-w[100%] mt-8 mb-4 grid gap-x-1 gap-y-1 sm:gap-y-8 lg:gap-x-8 lg:grid-cols-2 xl:gap-x-12 2xl:gap-x-16">
-          {/* IMAGE FIRST COL */}
-          {productJson ? (
-            <CarouselSwiper
-              productJson={productJson}
-              productKey={productDialogGrid.id}
-            />
-          ) : (
-            <div className="w-100% h-auto ml-[-28px] sm:mx-auto">
-              <div className=" w-[400px] max-w-[96%] h-[100%] max-h-[100%] sm:w-[32rem] lg:h-[32rem] xl:h-[34rem] p-4 space-x-4 bg-slate-700/60 rounded-box">
-                <div className="w-[100%]">
-                  <img
-                    src={image}
-                    alt={name}
-                    className="rounded-box object-cover h-full max-w-[96%] w-[340px] sm:w-[100%] mx-auto"
-                  />
+          <div>
+            {/* IMAGE FIRST COL */}
+            {productJson ? (
+              <CarouselSwiper
+                productJson={productJson}
+                productKey={productDialogGrid.id}
+              />
+            ) : (
+              <div className="w-100% h-auto ml-[-28px] sm:mx-auto">
+                <div className=" w-[400px] max-w-[96%] h-[100%] max-h-[100%] sm:w-[32rem] lg:h-[32rem] xl:h-[34rem] p-4 space-x-4 bg-slate-700/60 rounded-box">
+                  <div className="w-[100%] max-w-[1]">
+                    <img
+                      src={image}
+                      alt={name}
+                      className="rounded-box object-cover h-full max-w-[96%] w-[340px] sm:w-[100%] mx-auto"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
-
+            )}
+          </div>
           {/* PRODUCT INFO SECOND COL */}
           <div>
             <div className="flex gap-x-8 items-center">
