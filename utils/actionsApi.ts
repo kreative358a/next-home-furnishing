@@ -507,8 +507,8 @@ export const createOrAddProductActionUrl = async (
           data: {
             ...validatedFields,
             image: fullPath,
-            // clerkId: user.id,
-            clerkId: "user_2qX2pW86GdzkoSoprNXyPhxmvlu",
+            clerkId: user.id,
+            // clerkId: "user_2qX2pW86GdzkoSoprNXyPhxmvlu",
           },
         });
 
