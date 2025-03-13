@@ -507,7 +507,8 @@ export const createOrAddProductActionUrl = async (
           data: {
             ...validatedFields,
             image: fullPath,
-            clerkId: user.id,
+            // clerkId: user.id,
+            clerkId: process.env.ADMIN_USER_ID as string,
           },
         });
 
@@ -555,6 +556,7 @@ export const createOrAddProductActionUrl = async (
         // return renderErrorUrl(error);
         // console.log(error);
         // throw new Error("Product not found error");
+        console.log("error aA2:", error);
         return {
           message: `Error product not created aA2: ${renderErrorUrl(error)}`,
         };
