@@ -461,7 +461,9 @@ export const createAddProductActionUrl = async (
     // return renderErrorUrl(error);
     // console.log(error);
     // throw new Error("Product not found error");
-    return { message: `Error product not created: ${renderErrorUrl(error)}` };
+    return {
+      message: `Error product not created aA1: ${renderErrorUrl(error)}`,
+    };
   }
   // throw new Error("Product not found");
   // return { fetchSingleProductMy: undefined }; // return undefined if no product is fetched
@@ -554,7 +556,7 @@ export const createOrAddProductActionUrl = async (
         // console.log(error);
         // throw new Error("Product not found error");
         return {
-          message: `Error product not created: ${renderErrorUrl(error)}`,
+          message: `Error product not created aA2: ${renderErrorUrl(error)}`,
         };
       }
     }

@@ -460,7 +460,9 @@ export const createAddProductActionUrl = async (
       } // return the fetched product
     }
   } catch (error) {
-    return { message: `Error product not created: ${renderErrorUrl(error)}` };
+    return {
+      message: `Error product not created aS1: ${renderErrorUrl(error)}`,
+    };
   }
 
   return { message: "something went wrong try later" };
@@ -541,7 +543,7 @@ export const createOrAddProductActionUrl = async (
         // console.log(error);
         // throw new Error("Product not found error");
         return {
-          message: `Error product not created: ${renderErrorUrl(error)}`,
+          message: `Error product not created aT2: ${renderErrorUrl(error)}`,
         };
       }
     }

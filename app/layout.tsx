@@ -12,6 +12,7 @@ import { dark, neobrutalism, shadesOfPurple } from "@clerk/themes";
 import { themeList } from "@/components/navbar/DarkMode";
 import ProvidersClient from "./providers-client";
 import ProvidersServer from "./providers-server";
+// import App, { AppContext, AppInitialProps, AppProps } from 'next/app'
 // import { auth, currentUser } from "@clerk/nextjs/server";
 // import { getAuthUserId } from "@/utils/actionsServer";
 
