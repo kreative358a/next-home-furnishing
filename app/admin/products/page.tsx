@@ -2,7 +2,7 @@ import EmptyList from "@/components/global/EmptyList";
 import { deleteProductAction, fetchAdminProducts } from "@/utils/actionsServer";
 import Link from "next/link";
 
-import { formatCurrency } from "@/utils/format";
+import { formatCurrency, formatDate } from "@/utils/format";
 import {
   Table,
   TableBody,
@@ -43,11 +43,19 @@ async function AdminProductsPage() {
             <TableHead className="px-4">Price</TableHead>
             <TableHead className="px-4">Actions</TableHead>
             <TableHead className="px-4">Image</TableHead>
+            <TableHead className="px-4">Date</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {items.map((item) => {
-            const { id: productId, name, company, price, image } = item;
+            const {
+              id: productId,
+              name,
+              company,
+              price,
+              image,
+              createdAt,
+            } = item;
             // console.log('productId: ', productId);
 
             return (
@@ -76,6 +84,7 @@ async function AdminProductsPage() {
                     </PopoverContent>
                   </Popover>
                 </TableCell>
+                <TableCell>{formatDate(createdAt)}</TableCell>
               </TableRow>
             );
           })}

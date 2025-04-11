@@ -6,7 +6,7 @@
 import imageComingSoon from "@/public/image_coming_soon.png";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, ChangeEvent } from "react";
 // import { useDispatch } from "react-redux";
 import { addItem } from "@/features/cart/cartSlice";
 import { Swiper as SwiperProduct } from "swiper/react";
@@ -16,7 +16,8 @@ import { Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { ProductHF } from "@/utils";
+import { checkImage, ProductHF, readAsBase64 } from "@/utils";
+import axios, { AxiosResponse } from "axios";
 // import { useAppDispatch } from "@/hooks/hooks";
 import {
   // customFetch,
@@ -48,6 +49,8 @@ import {
   createAddProductActionUrl,
   createOrAddProductActionUrl,
 } from "@/utils/actionsApi";
+import { userInfo } from "os";
+import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
 // import { auth } from "@clerk/nextjs/server";
 // const generateAmountOptions = (number: number) => {
 //   return Array.from({ length: number }, (_, index) => {
@@ -71,10 +74,30 @@ function generateAmountOptions(number: number) {
   });
 }
 
+function toBase64(file: File) {
+  return new Promise((resolve, reject) => {
+    const fileReader = new FileReader();
+
+    fileReader.readAsDataURL(file);
+
+    fileReader.onload = () => {
+      resolve(fileReader.result);
+    };
+
+    fileReader.onerror = (error) => {
+      reject(error);
+    };
+  });
+}
+
 interface MyObject {
   [k: string]: any;
 }
 
+// type Repo = {
+//   blob: string
+
+// }
 // const ProductDialogHF = ({
 //   key,
 //   id,
@@ -110,7 +133,8 @@ function ProductDialogGridHF({
   const categoryName = categoryPath[1].name;
   const originId = product.id;
 
-  const inputRef = useRef<HTMLInputElement | null>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
   const productCurrentPrice = Math.ceil(price.currentPrice);
   const listPhotos: string[] = [];
   // const dictColorPrice = new Object();
@@ -137,12 +161,10 @@ function ProductDialogGridHF({
   const [productColor, setProductColor] = useState("");
   const [selectedImage, setSelectedImage] = useState<File | any>();
   const [dataTrans, setDataTrans] = useState<FileList | any>();
-  // imageComingSoon
-  // const productPrice = price.currentPrice;
-
-  // const listDescript = ["unknown"];
-
-  // mySet.add(product_color[0]);
+  const [imageNew, setImageNew] = useState<string>(image);
+  const [imageNewProxy, setImageNewProxy] = useState<string>(
+    "https://cors-anywhere.herokuapp.com/" + image
+  );
 
   useEffect(() => {
     const product_color = image.split("__")[0].split("-").slice(-1)[0];
@@ -150,70 +172,6 @@ function ProductDialogGridHF({
     listColors.push(product_color);
     setProductColor(product_color);
   }, []);
-
-  // async function scrapeData() {
-  //   // async function scrapeData(): Promise<string | undefined> {
-  //   try {
-  //     const response = await fetch(url, {
-  //       // async function scrapeData(url: string): Promise<string | undefined> {
-  //       //   try {
-  //       //     const response: Response = await fetch(url, {
-  //       // cache: "no-store",
-  //       method: "GET",
-  //       headers: {
-  //         "User-Agent":
-  //           "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
-  //         "Accept-Language": "en-US,en;q=0.9",
-  //         "Accept-Encoding": "gzip, deflate, br",
-  //         Accept:
-  //           "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-  //         Connection: "keep-alive",
-  //       },
-  //     });
-
-  //     const html = await response.text();
-  //     const parser = new DOMParser();
-  //     const doc = parser.parseFromString(html, "text/html");
-  //     // console.log("doc: ", doc);
-  //     const desc = doc.getElementsByClassName(
-  //       "pip-product-summary__description"
-  //     )[0];
-  //     const desc_try = desc.textContent;
-
-  //     if (desc_try !== null) setDescript(desc_try);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-
-  //   useEffect(() => {
-  //     scrapeData();
-  // // }, [scrapeData]);
-  //   }, []);
-
-  // function addImageInput_() {
-  //   const url =
-  //     "https://www.ikea.com/us/en/images/products/poaeng-armchair-birch-veneer-gunnared-light-green__1192124_pe900869_s5.jpg";
-  //   const name = url.split("/").slice(-1)[0];
-  //   // const fileInput: any = document.querySelector('input[type="file"]');
-  //   // const fileInput: HTMLInputElement | null = document.querySelector("#image");
-  //   try {
-  //     fetch(url)
-  //       .then((res) => res.blob())
-  //       .then((blob) => {
-  //         const firstImage = new File([blob], name, {
-  //           type: blob.type,
-  //         });
-  //         console.log("blob", blob);
-  //         // readFile(blob)
-  //         const dataTransfer = new DataTransfer();
-  //         dataTransfer.items.add(firstImage);
-  //         CreateInputFile(dataTransfer.files);
-  //       });
-  //   } catch (error) {
-  //     console.log("error addImageInput: ", error);
-  //   }
-  // }
 
   useEffect(() => {
     const scrapeDataNew = async () => {
@@ -361,43 +319,109 @@ function ProductDialogGridHF({
     setProductColors(Object.keys(dictColorPrice));
   }, []);
 
-  function open() {
-    console.log("product: ", product);
-    console.log("typeof product", typeof product);
-    const fileInput: HTMLInputElement | null = document.querySelector("#image");
-    // scrapeData();
-    scrapeDataCallback();
-    console.log("url: ", image);
-    const nameImg = image.split("/").slice(-1)[0];
-    console.log("nameImg: ", nameImg);
-    try {
-      fetch(image)
-        .then((res) => res.blob())
-        .then((blob) => {
-          const firstImage = new File([blob], nameImg, {
-            type: blob.type,
-          });
-          console.log("blob", blob);
-          // readFile(blob)
-          // // readFile(firstImage)
-          // console.log('firstImage: ', firstImage);
-          // console.log('firstImage.name: ', firstImage.name);
-          const dataTransfer = new DataTransfer();
-          dataTransfer.items.add(firstImage);
-          // if (fileInput !== null) fileInput.files = dataTransfer.files;
-          // if (dataTransfer.files !== null) {
-          //   const dataTransferNew = dataTransfer.files;
-          //   setDataTrans(dataTransferNew);
-          //   if (inputRef.current !== null) {
-          //     // const inputRefCurrentFiles: FileList =  inputRef.current.files
-          //     inputRef.current.files = dataTrans;
-          //   }
-          // }
+  const getFileBlob = async (image_api: string): Promise<AxiosResponse> => {
+    const response: AxiosResponse = await axios.get(image_api, {
+      responseType: "blob",
+      headers: {
+        // "Access-Control-Allow-Origin": `${image}`,
+        "Access-Control-Allow-Origin": "*",
+        // "Access-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+      },
+    });
+    return response;
+  };
 
-          if (inputRef.current) inputRef.current.files = dataTransfer.files;
-        });
-    } catch (error) {
-      console.log("blob error: ", error);
+  async function open() {
+    const nameImg = image.split("/").slice(-1)[0];
+    // console.log("nameImg new: ", nameImg);
+    const typeImg = nameImg.split(".").slice(-1)[0];
+    // console.log("typeImg new: ", typeImg);
+    if (nameImg) {
+      // try {
+      //   const response: AxiosResponse = await getFileBlob(
+      //     `/api/?url=${encodeURIComponent(image)}`
+      //   );
+      //   // const blobUrl: string = URL.createObjectURL(new Blob([response.data]));
+      //   // downloadFile(blobUrl, fileName);
+      //   console.log("blob: ", response.data);
+      // } catch (error) {
+      //   console.log("Error open: ", error);
+      // }
+      try {
+        // const response = await fetch(
+        //   //   `http://localhost:3002/products-api?url=${encodeURIComponent(image)}`
+        //   // );
+        //   // imageNewProxy,
+        //   `ikea-image/${nameImg}`,
+        //   {
+        //     headers: {
+        //       // "Access-Control-Allow-Origin": `${image}`,
+        //       "Access-Control-Allow-Origin": "*",
+        //     },
+        //   }
+        // );
+        // const imageBlob = await response.blob();
+        // console.log("imageBlob: ", imageBlob);
+        fetch(`ikea-image/${nameImg}`, {
+          headers: {
+            // "Access-Control-Allow-Origin": `${image}`,
+            "Access-Control-Allow-Origin": "*",
+          },
+        })
+          .then((res) => res.blob())
+          .then((blob) => {
+            const firstImage = new File([blob], nameImg, {
+              type: blob.type,
+            });
+            console.log("blob", blob);
+            const dataTransfer = new DataTransfer();
+            dataTransfer.items.add(firstImage);
+
+            if (inputRef.current) inputRef.current.files = dataTransfer.files;
+          });
+      } catch (error) {
+        console.log("Error open: ", error);
+      }
+      // try {
+      //   // fetch(imageNewProxy, {
+      //   fetch(image, {
+      //     method: "GET",
+      //     // credentials: "include",
+      //     // headers: {
+      //     //   // authorization: bearer,
+      //     //   // Authorization: 'Token he8ky3r1qpsjkl0zbq5qgp7dnki0953lc5rt2zfp
+      //     //   // 'https://proxy.webshare.io/api/v2/profile'
+      //     //   // https://apidocs.webshare.io/
+      //     //   // next.home.furnishing.app@gmail.com
+      //     //   "User-Agent":
+      //     //     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+      //     //   "Accept-Language": "en-US,en;q=0.9",
+      //     //   "Accept-Encoding": "gzip, deflate, br",
+      //     //   "Access-Control-Allow-Methods": "GET", // ,HEAD,POST,OPTIONS
+      //     //   "Access-Control-Max-Age": "86400",
+      //     //   Accept:
+      //     //     "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+      //     //   Connection: "keep-alive",
+      //     //   "Access-Control-Allow-Origin": "https://www.ikea.com",
+      //     //   "Access-Control-Allow-Headers":
+      //     //     "Origin, X-Requested-With, Content-Type, Accept",
+      //     // },
+      //   })
+      //     .then((res) => res.blob())
+      //     .then((blob) => {
+      //       const firstImage = new File([blob], nameImg, {
+      //         type: blob.type,
+      //       });
+      //       console.log("blob: ", blob);
+      //       const dataTransfer = new DataTransfer();
+      //       dataTransfer.items.add(firstImage);
+      //       console.log("dataTransfer.files: ", dataTransfer.files);
+      //       if (inputRef.current) inputRef.current.files = dataTransfer.files;
+      //     });
+      // } catch (error) {
+      //   console.log("blob error: ", error);
+      // }
     }
     setIsOpen(true);
   }
@@ -574,15 +598,7 @@ function ProductDialogGridHF({
                       {generateAmountOptions(10)}
                     </select>
                   </div>
-                  {/*
-                  <div className="mt-10">
-                    <button
-                      className="btn btn-secondary btn-md"
-                      onClick={addToCart}
-                    >
-                      Add to bag
-                    </button>
-                  </div> */}
+
                   <div className="">
                     <FormContainer
                       action={createOrAddProductActionUrl}
@@ -623,6 +639,8 @@ function ProductDialogGridHF({
                             accept="image/*"
                             // className="hidden"
                             ref={inputRef}
+                            // onChange={handleFileChange}
+                            // onChange={updateImage}
                           />
                           <FormInputDialogValue
                             type="text"
@@ -734,3 +752,58 @@ function ProductDialogGridHF({
   );
 }
 export default ProductDialogGridHF;
+
+// const getImage = async () => {
+//   try {
+//     await fetch(image, {
+//       mode: "no-cors",
+//       // method: "GET",
+//       // headers: {
+//       //   "User-Agent":
+//       //     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+//       //   "Accept-Language": "en-US,en;q=0.9",
+//       //   "Accept-Encoding": "gzip, deflate, br",
+//       //   Accept:
+//       //     "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+//       //   Connection: "keep-alive",
+//       //   "Access-Control-Allow-Origin": "*",
+//       //   "Access-Control-Allow-Headers":
+//       //     "Origin, X-Requested-With, Content-Type, Accept",
+//       // },
+//     })
+//       .then((res) => res.blob())
+//       .then((blob) => {
+//         const firstImage = new File([blob], nameImg, {
+//           type: blob.type,
+//         });
+//         console.log("blob", blob);
+//         const dataTransfer = new DataTransfer();
+//         dataTransfer.items.add(firstImage);
+
+//         if (inputRef.current) inputRef.current.files = dataTransfer.files;
+//       });
+//   } catch (error) {
+//     console.log("blob error: ", error);
+//   }
+// };
+// getImage();
+
+// const controller = new AbortController();
+// const signal = controller.signal;
+// try {
+//   fetch(myRequest, { signal })
+//     .then((res) => res.blob()) // Get the response and return it as a blob
+//     .then((blob) => {
+//       console.log("blob", blob);
+//       // Create a URL to the blob and use it without modifying it.
+//       setResponseNew(URL.createObjectURL(blob));
+//       setImageNew(URL.createObjectURL(blob));
+//       let img = new Image();
+//       img.src = URL.createObjectURL(blob);
+//       const firstImage = new File([blob], nameImg, {
+//         type: blob.type,
+//       });
+//       const dataTransfer = new DataTransfer();
+//       dataTransfer.items.add(firstImage);
+//       if (inputRef.current) inputRef.current.files = dataTransfer.files;
+//     });

@@ -58,6 +58,7 @@ const ACCEPTED_IMAGE_MIME_TYPES = [
   "image/jpg",
   "image/png",
   "image/webp",
+  "text/html",
 ];
 
 export const imageSchemaUrl = z.object({

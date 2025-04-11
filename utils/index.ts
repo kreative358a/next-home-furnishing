@@ -5,3 +5,4 @@ export * from "./types";
 
 export * from "./formatAsDollars";
 export * from "./pagination";
+export * from "./image-utils.service";

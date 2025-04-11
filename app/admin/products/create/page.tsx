@@ -12,6 +12,21 @@ function CreateProductPage() {
   const name = faker.commerce.productName();
   const company = faker.company.name();
   const description = faker.lorem.paragraph({ min: 10, max: 12 });
+  const imageAlt = faker.book.title();
+  const color_1 = faker.color.human();
+  const color_2 = faker.color.human();
+  const color_3 = faker.color.human();
+  const image_1 = faker.image.avatar();
+  const image_2 = faker.image.avatar();
+  const image_3 = faker.image.avatar();
+  const array_colors = [color_1, color_2, color_3];
+  const array_images = [image_1, image_2, image_3];
+  const categoryName = faker.commerce.department();
+  const originId = faker.string.alphanumeric(12);
+  const price_1 = faker.number.int({ min: 100, max: 200 });
+  const price_2 = faker.number.int({ min: 100, max: 200 });
+  const price_3 = faker.number.int({ min: 100, max: 200 });
+  const array_prices = [price_1, price_2, price_3];
   // const imageUrl = faker.image.url({
   //   width: 640,
   //   height: 480,
@@ -33,34 +48,78 @@ function CreateProductPage() {
             />
             <FormInput
               type="text"
+              name="title"
+              label="product title"
+              defaultValue={imageAlt}
+              // value={name}
+            />
+            <FormInput
+              type="text"
               name="company"
               label="company"
               defaultValue={company}
             />
             <FormInput
               type="text"
-              name="colors"
-              label="colors"
-              defaultValue={""}
+              name="color"
+              label="color"
+              defaultValue={color_1}
             />
             <FormInput
               type="text"
-              name="images"
-              label="images"
-              defaultValue={""}
+              name="colors"
+              label="colors"
+              defaultValue={array_colors.toString()}
+            />
+            <FormInput
+              type="text"
+              name="category"
+              label="product category"
+              defaultValue={categoryName}
+            />
+            <FormInput
+              type="text"
+              name="type"
+              label="product type"
+              defaultValue={categoryName}
+            />
+            <FormInput
+              type="text"
+              name="type"
+              label="product type"
+              defaultValue={categoryName}
             />
             <FormInput
               type="text"
               name="prices"
               label="prices"
-              defaultValue={""}
+              defaultValue={array_prices.toString()}
             />
+            <FormInput
+              type="text"
+              name="originId"
+              label="product Id"
+              defaultValue={originId}
+              // value={name}
+            />
+            <FormInput
+              type="text"
+              name="images"
+              label="images"
+              defaultValue={array_images.toString()}
+            />
+
             <PriceInput />
             <ImageInput />
           </div>
           <TextAreaInput
             name="description"
             labelText="product description"
+            defaultValue={description}
+          />
+          <TextAreaInput
+            name="productJson"
+            labelText="productJson"
             defaultValue={description}
           />
           <div className="mt-6">

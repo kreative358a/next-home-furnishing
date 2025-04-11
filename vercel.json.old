@@ -1,0 +1,57 @@
+{
+  "functions": {
+    "app/products-api/**/*": {
+      "maxDuration": 30
+    },
+    "app/products-api/*": {
+      "maxDuration": 30
+    },
+    "app/products-server/**/*": {
+      "maxDuration": 30
+    },
+    "app/products-server/*": {
+      "maxDuration": 30
+    },
+    "app/products-test/**/*": {
+      "maxDuration": 30
+    },
+    "app/products-test/*": {
+      "maxDuration": 30
+    },
+    "app/favorites/*": {
+      "maxDuration": 30
+    },
+    "app/reviews/*": {
+      "maxDuration": 30
+    }
+  },
+  "headers": [
+    {
+      "source": "/ikea-image/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Credentials",
+          "value": "true"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET,OPTIONS,PATCH,DELETE,POST,PUT"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/ikea-image/:path*",
+      "destination": "https://www.ikea.com/us/en/images/products/:path*"
+    }
+  ]
+}

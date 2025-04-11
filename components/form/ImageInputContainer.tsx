@@ -19,7 +19,7 @@ function ImageInputContainer(props: ImageInputContainerProps) {
   const { image, name, action, text } = props;
   const [isUpdateFormVisible, setUpdateFormVisible] = useState(false);
   return (
-    <span className="text-accent-foreground mb-8 p-2 bg-foreground/20 border-2 border-foreground/20 rounded-md ext-sm lg:text-base 3xl:text-lg 3xl:text-lg flex flex-col w-[280px] h-[340px]">
+    <span className="text-accent-foreground mb-8 p-2 bg-foreground/20 border-2 border-foreground/20 rounded-md ext-sm lg:text-base 3xl:text-lg flex flex-col w-[280px] h-[340px]">
       <Image
         src={image}
         width={200}
@@ -32,7 +32,7 @@ function ImageInputContainer(props: ImageInputContainerProps) {
         variant="outline"
         size="sm"
         onClick={() => setUpdateFormVisible((prev) => !prev)}
-        className="w-[260px] text-base xl:te 3xl:text:xl"
+        className="w-[260px] text-base xl:te 3xl:text:xl relative z-12"
       >
         {text}
       </Button>

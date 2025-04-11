@@ -367,37 +367,29 @@ function ProductDialogListHF({
     const fileInput: HTMLInputElement | null = document.querySelector("#image");
     // scrapeData();
     scrapeDataCallback();
-    console.log("url: ", image);
+    // console.log("url: ", image);
     const nameImg = image.split("/").slice(-1)[0];
-    console.log("nameImg: ", nameImg);
+    // console.log("nameImg: ", nameImg);
     try {
-      fetch(image)
+      fetch(`ikea-image/${nameImg}`, {
+        headers: {
+          // "Access-Control-Allow-Origin": `${image}`,
+          "Access-Control-Allow-Origin": "*",
+        },
+      })
         .then((res) => res.blob())
         .then((blob) => {
           const firstImage = new File([blob], nameImg, {
             type: blob.type,
           });
           console.log("blob", blob);
-          // readFile(blob)
-          // // readFile(firstImage)
-          // console.log('firstImage: ', firstImage);
-          // console.log('firstImage.name: ', firstImage.name);
           const dataTransfer = new DataTransfer();
           dataTransfer.items.add(firstImage);
-          // if (fileInput !== null) fileInput.files = dataTransfer.files;
-          // if (dataTransfer.files !== null) {
-          //   const dataTransferNew = dataTransfer.files;
-          //   setDataTrans(dataTransferNew);
-          //   if (inputRef.current !== null) {
-          //     // const inputRefCurrentFiles: FileList =  inputRef.current.files
-          //     inputRef.current.files = dataTrans;
-          //   }
-          // }
 
           if (inputRef.current) inputRef.current.files = dataTransfer.files;
         });
     } catch (error) {
-      console.log("blob error: ", error);
+      console.log("Error open: ", error);
     }
     setIsOpen(true);
   }
